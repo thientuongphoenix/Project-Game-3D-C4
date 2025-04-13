@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     int currentHp = 100;
     int maxHp = 100;
     float weight = 2.5f;
-    string enemyName = "Enemy";
     bool isDead = true;
     bool isBoss = true;
 
@@ -15,14 +14,23 @@ public class Enemy : MonoBehaviour
     //Vì head1, head2 được tạo ra bởi class nên được xem là đối tượng (Object)
     EnemyHeart heart = new EnemyHeart();
 
-    string GetName()
+    public virtual void Moving()
     {
-        return this.enemyName;
+        //Write move logic here
+        string logMessage = this.GetName() + " Moving";
+        Debug.Log(logMessage);
     }
 
-    int GetCurrentHp()
+    public abstract string GetName();
+
+    public virtual int GetCurrentHp()
     {
         return this.currentHp;
+    }
+
+    public virtual void SetHp(int newHp)
+    {
+        this.currentHp = newHp;
     }
 
     float GetWeight()
@@ -30,8 +38,15 @@ public class Enemy : MonoBehaviour
         return this.weight;
     }
 
-    bool GetIsDead()
+    /// <summary>
+    /// Hàm này dùng để xác định trạng thái chết của enemy
+    /// </summary>
+    /// <returns>bool isDead</returns>
+    public virtual bool IsDead()
     {
+        if(this.currentHp > 0) this.isDead = false;
+        else this.isDead = true;
+
         return this.isDead;
     }
 
@@ -40,10 +55,5 @@ public class Enemy : MonoBehaviour
         return this.isBoss;
     }
 
-    public void Moving()
-    {
-        //Write move logic here
-        string logMessage = this.enemyName + " Moving";
-        Debug.Log(logMessage);
-    }    
+        
 }
