@@ -4,15 +4,34 @@ public abstract class Enemy : MonoBehaviour
 {
     int currentHp = 100;
     int maxHp = 100;
-    float weight = 2.5f;
+    float weight = 1f;
+    float minWeight = 1f;
+    float maxWeight = 10f;
     bool isDead = true;
     bool isBoss = true;
 
-    EnemyHead head1 = new EnemyHead();
-    EnemyHead head2 = new EnemyHead();
-    //head1, head2 là đối tượng và EnemyHead là kiểu dữ liệu của đối tượng.
-    //Vì head1, head2 được tạo ra bởi class nên được xem là đối tượng (Object)
-    EnemyHeart heart = new EnemyHeart();
+    private void Reset()
+    {
+        this.InitData();
+    }
+
+    void OnEnable()
+    {
+        Debug.Log("OnEnable");
+        this.InitData();
+    }
+
+    public abstract string GetName();
+
+    protected virtual void InitData()
+    {
+        this.weight = this.GetRandomWeight();
+    }
+
+    protected virtual float GetRandomWeight()
+    {
+        return Random.Range(this.minWeight, this.maxWeight);
+    }
 
     public virtual void Moving()
     {
@@ -21,11 +40,15 @@ public abstract class Enemy : MonoBehaviour
         Debug.Log(logMessage);
     }
 
-    public abstract string GetName();
-
+    
     public virtual int GetCurrentHp()
     {
         return this.currentHp;
+    }
+
+    public virtual int GetMaxHp()
+    {
+        return this.maxHp;
     }
 
     public virtual void SetHp(int newHp)
