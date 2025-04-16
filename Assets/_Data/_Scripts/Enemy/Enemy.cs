@@ -17,11 +17,16 @@ public abstract class Enemy : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("OnEnable");
+        //Debug.Log("OnEnable");
         this.InitData();
     }
 
     public abstract string GetName();
+
+    public virtual string GetObjName()
+    {
+        return transform.name;
+    }
 
     protected virtual void InitData()
     {
@@ -56,9 +61,19 @@ public abstract class Enemy : MonoBehaviour
         this.currentHp = newHp;
     }
 
-    float GetWeight()
+    public virtual float GetWeight()
     {
         return this.weight;
+    }
+
+    public virtual float GetMaxWeight()
+    {
+        return this.maxWeight;
+    }
+
+    public virtual float GetMinWeight()
+    {
+        return this.minWeight;
     }
 
     /// <summary>
