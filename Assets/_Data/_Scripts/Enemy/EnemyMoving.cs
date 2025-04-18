@@ -8,6 +8,11 @@ public class EnemyMoving : MonoBehaviour
 
     private void Start()
     {
+        
+    }
+
+    private void FixedUpdate()
+    {
         agent.SetDestination(target.transform.position);
     }
 }
