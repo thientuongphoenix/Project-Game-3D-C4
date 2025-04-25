@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMoving : MonoBehaviour
+public class EnemyMoving : SaiMonoBehaviour
 {
     public GameObject target;
-    public NavMeshAgent agent;
+    [SerializeField] protected EnemyCtrl enemyCtrl;
 
     private void Start()
     {
@@ -13,6 +13,32 @@ public class EnemyMoving : MonoBehaviour
 
     private void FixedUpdate()
     {
-        agent.SetDestination(target.transform.position);
+        this.Moving();
+    }
+
+    protected override void LoadComponent()
+    {
+        base.LoadComponent();
+        this.LoadEnemyCtrl();
+        this.TargetMoving();
+    }
+
+    protected virtual void LoadEnemyCtrl()
+    {
+        if (this.enemyCtrl != null) return;
+        this.enemyCtrl = transform.parent.GetComponent<EnemyCtrl>();
+        Debug.Log(transform.name + ": LoadNavMeshAgent", gameObject);
+    }
+
+    protected virtual void TargetMoving()
+    {
+        if (this.target != null) return;
+        this.target = GameObject.Find("TargetMoving");
+        Debug.Log(transform.name + ": TargetMoving", gameObject);
+    }
+
+    protected virtual void Moving()
+    {
+        this.enemyCtrl.Agent.SetDestination(target.transform.position);
     }
 }
