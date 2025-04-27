@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Point : SaiMonoBehaviour
 {
-    [SerializeField] protected Transform nextPoint;
+    [SerializeField] protected Point nextPoint;
+    public Point NextPoint => nextPoint;
 
     protected override void LoadComponent()
     {
@@ -26,7 +27,7 @@ public class Point : SaiMonoBehaviour
         int siblingIndex = currentPoint.GetSiblingIndex(); //Hàm này có sẵn dùng lấy Obj con anh em
         if(siblingIndex + 1 < parent.childCount)
         {
-            this.nextPoint = parent.GetChild(siblingIndex + 1);
+            this.nextPoint = parent.GetChild(siblingIndex + 1).GetComponent<Point>();
         }
         else
         {

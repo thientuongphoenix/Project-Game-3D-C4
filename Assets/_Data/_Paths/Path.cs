@@ -5,6 +5,7 @@ using UnityEngine;
 public class Path : SaiMonoBehaviour
 {
     [SerializeField] protected List<Point> points = new();
+    public Point GetPoint(int pointNumber) => points[pointNumber];
 
     protected override void LoadComponent()
     {
