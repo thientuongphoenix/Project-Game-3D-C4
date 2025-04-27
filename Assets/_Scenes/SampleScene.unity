@@ -727,6 +727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 1287898266}
   agent: {fileID: 542501271}
+  animator: {fileID: 1287898267}
 --- !u!1001 &591538126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1466,16 +1467,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1045111347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52770fc9f18191549951312f62880fcd, type: 3}
+  m_Script: {fileID: 11500000, guid: fffec7e8c808e8148b594f5e58f1f99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   enemyCtrl: {fileID: 1657298258}
-  pathName: Path_1
+  pathName: Path_0
   enemyPath: {fileID: 0}
   currentPoint: {fileID: 0}
   pointDistance: Infinity
   stopDistance: 1
+  canMove: 0
+  isMoving: 0
   isFinish: 0
 --- !u!4 &1118151852 stripped
 Transform:
@@ -1593,11 +1596,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   enemyCtrl: {fileID: 542501272}
-  pathName: Path_0
+  pathName: Path_1
   enemyPath: {fileID: 0}
   currentPoint: {fileID: 0}
   pointDistance: Infinity
   stopDistance: 1
+  canMove: 0
+  isMoving: 0
   isFinish: 0
 --- !u!1 &1176759872 stripped
 GameObject:
@@ -1814,11 +1819,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   enemyCtrl: {fileID: 1966533251}
-  pathName: Path_0
+  pathName: Path_1
   enemyPath: {fileID: 0}
   currentPoint: {fileID: 0}
   pointDistance: Infinity
   stopDistance: 1
+  canMove: 0
+  isMoving: 0
   isFinish: 0
 --- !u!1001 &1323427042
 PrefabInstance:
@@ -2252,6 +2259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 877897384}
   agent: {fileID: 1657298257}
+  animator: {fileID: 1626230551}
 --- !u!1001 &1667962421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2848,6 +2856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 760284884}
   agent: {fileID: 1966533250}
+  animator: {fileID: 760284885}
 --- !u!1001 &2067919831
 PrefabInstance:
   m_ObjectHideFlags: 0
