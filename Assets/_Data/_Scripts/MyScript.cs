@@ -10,10 +10,10 @@ public class MyScript : MonoBehaviour
 
     void TestIsDead()
     {
-        Zombie zombie = new Zombie();
-        zombie.SetHp(0);
-        string logMessage = zombie.GetName() + " " + zombie.GetCurrentHp() + " " + zombie.IsDead();
-        Debug.Log(logMessage);
+        //Zombie zombie = new Zombie();
+        //zombie.SetHp(0);
+        //string logMessage = zombie.GetName() + " " + zombie.GetCurrentHp() + " " + zombie.IsDead();
+        //Debug.Log(logMessage);
     }
 
     void TestClass()
