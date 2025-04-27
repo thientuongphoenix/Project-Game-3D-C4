@@ -7,6 +7,11 @@ public class SaiMonoBehaviour : MonoBehaviour
         this.LoadComponent();
     }
 
+    protected virtual void Start()
+    {
+        this.LoadComponent();
+    }
+
     protected virtual void Reset()
     {
         this.LoadComponent();
