@@ -18,6 +18,7 @@ public class Path : SaiMonoBehaviour
         foreach (Transform child in transform)
         {
             Point point = child.GetComponent<Point>();
+            point.LoadNextPoint();
             this.points.Add(point);
         }
         Debug.Log(transform.name + ": LoadPoints", gameObject);
