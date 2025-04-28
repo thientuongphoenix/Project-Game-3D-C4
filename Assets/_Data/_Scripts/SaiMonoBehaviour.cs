@@ -4,7 +4,7 @@ public class SaiMonoBehaviour : MonoBehaviour
 {
     protected virtual void Awake()
     {
-        //this.LoadComponent();
+        //For override
     }
 
     protected virtual void Start()
