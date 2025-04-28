@@ -1,16 +1,22 @@
 using UnityEngine;
 
-public class TowerTargetable : MonoBehaviour
+[RequireComponent(typeof(SphereCollider))]
+public class TowerTargetable : SaiMonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] protected SphereCollider sphereCollider;
+
+    protected override void LoadComponent()
     {
-        
+        base.LoadComponent();
+        this.LoadSphereCollider();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void LoadSphereCollider()
     {
-        
+        if (this.sphereCollider != null) return;
+        this.sphereCollider = GetComponent<SphereCollider>();
+        this.sphereCollider.radius = 0.5f;
+        this.sphereCollider.isTrigger = true;
+        Debug.Log(transform.name + ": LoadSphereCollider", gameObject);
     }
 }
