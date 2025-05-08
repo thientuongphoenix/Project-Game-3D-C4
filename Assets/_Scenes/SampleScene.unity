@@ -2858,7 +2858,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerCtrl: {fileID: 1995209484}
-  target: {fileID: 1657298258}
+  rotationSpeed: 2
+  target: {fileID: 0}
 --- !u!114 &1528238974 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6618790734272204303, guid: 2d58f065666f2a34c99732f5c8359d0a, type: 3}
@@ -4043,6 +4044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 2823778062051782896}
   rotator: {fileID: 21616566179170321}
+  towerTargeting: {fileID: 0}
 --- !u!4 &1995209485
 Transform:
   m_ObjectHideFlags: 0
@@ -4052,7 +4054,7 @@ Transform:
   m_GameObject: {fileID: 1995209483}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.97, y: 0.8, z: -19.5}
+  m_LocalPosition: {x: -22.574, y: 0.8, z: -19.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
