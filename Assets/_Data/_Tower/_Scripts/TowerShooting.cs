@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TowerShooting : TowerAbstract
 {
+    [SerializeField] protected int currentFirePoint = 0;
     [SerializeField] protected float targetLoadSpeed = 1f;
     [SerializeField] protected float shootingSpeed = 1f;
     [SerializeField] protected float rotationSpeed = 2f;
@@ -48,8 +49,19 @@ public class TowerShooting : TowerAbstract
     protected virtual void Shooting()
     {
         Invoke(nameof(this.Shooting), this.shootingSpeed);
-
         if (this.target == null) return;
-        this.towerCtrl.BulletSpawner.Spawn(this.towerCtrl.Bullet);
+
+        FirePoint firePoint = this.GetFirePoint();
+        Bullet newBullet = this.towerCtrl.BulletSpawner.Spawn(this.towerCtrl.Bullet, firePoint.transform.position);
+        newBullet.gameObject.SetActive(true);
+    }
+
+    protected virtual FirePoint GetFirePoint()
+    {
+        FirePoint firePoint = this.towerCtrl.FirePoints[this.currentFirePoint];
+
+        this.currentFirePoint++;
+        if(this.currentFirePoint == this.towerCtrl.FirePoints.Count) this.currentFirePoint = 0;
+        return firePoint;
     }
 }

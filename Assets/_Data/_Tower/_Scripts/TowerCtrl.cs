@@ -19,6 +19,12 @@ public class TowerCtrl : SaiMonoBehaviour
     [SerializeField] protected List<FirePoint> firePoints = new();
     public List<FirePoint> FirePoints => firePoints;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        this.HidePrefabs();
+    }
+
     protected override void LoadComponent()
     {
         base.LoadComponent();
@@ -64,5 +70,10 @@ public class TowerCtrl : SaiMonoBehaviour
         FirePoint[] points = transform.GetComponentsInChildren<FirePoint>();
         this.firePoints = new List<FirePoint>(points);
         Debug.Log(transform.name + ": LoadFirePoints", gameObject);
+    }
+
+    protected virtual void HidePrefabs()
+    {
+        this.bullet.gameObject.SetActive(false);
     }
 }

@@ -2,15 +2,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] protected float speed = 10f;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(speed * Time.deltaTime * Vector3.forward);
     }
 }
