@@ -53,6 +53,9 @@ public class TowerShooting : TowerAbstract
 
         FirePoint firePoint = this.GetFirePoint();
         Bullet newBullet = this.towerCtrl.BulletSpawner.Spawn(this.towerCtrl.Bullet, firePoint.transform.position);
+        Vector3 rotatorDirection = this.towerCtrl.Rotator.forward; // Biến giữ vị trí trục z của phần xoay tháp súng
+        newBullet.transform.forward = rotatorDirection; //Viên đạn bay theo trục z. Mà trục z đang = trục z của mũi súng
+
         newBullet.gameObject.SetActive(true);
     }
 
