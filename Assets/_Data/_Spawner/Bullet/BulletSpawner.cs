@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class BulletSpawner : Spawner
 {
+    //Method Overloading
     public virtual Bullet Spawn(Bullet bulletPrefab)
     {
         Bullet newObject = Instantiate(bulletPrefab);
-
+        newObject.Despawn.SetSpawner(this);
         return newObject;
     }
 
