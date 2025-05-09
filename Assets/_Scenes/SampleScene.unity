@@ -3060,6 +3060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1822fe500bbf49e47a4bdb443b716fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnCount: 0
+  inPoolObjs: []
 --- !u!4 &1600690250
 Transform:
   m_ObjectHideFlags: 0
@@ -4643,6 +4645,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1995209485}
     m_Modifications:
+    - target: {fileID: 226900418070929217, guid: 01ab722255828bd438e21e4f5cd38ea9, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1454482066}
     - target: {fileID: 1006574981809240671, guid: 01ab722255828bd438e21e4f5cd38ea9, type: 3}
       propertyPath: m_Name
       value: Bullet
