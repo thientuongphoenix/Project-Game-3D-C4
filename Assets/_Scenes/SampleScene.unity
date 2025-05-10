@@ -4649,6 +4649,10 @@ PrefabInstance:
       propertyPath: parent
       value: 
       objectReference: {fileID: 1454482066}
+    - target: {fileID: 226900418070929217, guid: 01ab722255828bd438e21e4f5cd38ea9, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 1600690249}
     - target: {fileID: 1006574981809240671, guid: 01ab722255828bd438e21e4f5cd38ea9, type: 3}
       propertyPath: m_Name
       value: Bullet
