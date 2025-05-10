@@ -4,11 +4,13 @@ using UnityEngine;
 public class EnemyDamageReceiver : DamageRecever
 {
     [SerializeField] protected CapsuleCollider capsuleCollider;
+    [SerializeField] protected EnemyCtrl enemyCtrl;
     
     protected override void LoadComponent()
     {
         base.LoadComponent();
         this.LoadCapsuleCollider();
+        this.LoadEnemyCtrl();
     }
 
     protected virtual void LoadCapsuleCollider()
@@ -20,5 +22,24 @@ public class EnemyDamageReceiver : DamageRecever
         this.capsuleCollider.height = 1.5f;
         this.capsuleCollider.isTrigger = true;
         Debug.Log(transform.name + " LoadCapsuleCollider", gameObject);
+    }
+
+    protected virtual void LoadEnemyCtrl()
+    {
+        if(this.enemyCtrl != null) return;
+        this.enemyCtrl = GetComponentInParent<EnemyCtrl>();
+        Debug.Log(transform.name + " LoadAnimator", gameObject);
+    }
+
+    protected override void OnDead()
+    {
+        base.OnDead();
+        this.enemyCtrl.Animator.SetBool("isDead", this.isDead);
+    }
+
+    protected override void OnHurt()
+    {
+        base.OnHurt();
+        this.enemyCtrl.Animator.SetTrigger("isHurt");
     }
 }
