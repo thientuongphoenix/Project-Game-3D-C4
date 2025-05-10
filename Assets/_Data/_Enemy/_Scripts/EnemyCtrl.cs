@@ -11,12 +11,16 @@ public class EnemyCtrl : SaiMonoBehaviour
     [SerializeField] protected Animator animator;
     public Animator Animator => animator;
 
+    [SerializeField] protected TowerTargetable towerTargetable;
+    public TowerTargetable TowerTargetable => towerTargetable;
+
     protected override void LoadComponent()
     {
         base.LoadComponent();
         this.LoadNavMeshAgent();
         this.LoadModel();
         this.LoadAnimator();
+        this.LoadTowerTargetable();
     }
 
     protected virtual void LoadNavMeshAgent()
@@ -42,5 +46,13 @@ public class EnemyCtrl : SaiMonoBehaviour
         if (this.animator != null) return;
         this.animator = this.model.GetComponent<Animator>();
         Debug.Log(transform.name + ": LoadAnimator", gameObject);
+    }
+
+    protected virtual void LoadTowerTargetable()
+    {
+        if (this.towerTargetable != null) return;
+        this.towerTargetable = transform.GetComponentInChildren<TowerTargetable>();
+        this.towerTargetable.transform.localPosition = new Vector3(0, 0.4f, 0);
+        Debug.Log(transform.name + ": LoadTowerTargetable", gameObject);
     }
 }
