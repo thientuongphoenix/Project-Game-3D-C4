@@ -13,6 +13,14 @@ public abstract class DamageSender : SaiMonoBehaviour
         this.LoadRigidbody();
     }
 
+    protected virtual void LoadRigidbody()
+    {
+        if(this.rigid != null) return;
+        this.rigid = GetComponent<Rigidbody>();
+        this.rigid.useGravity = false;
+        Debug.Log(transform.name + " LoadRigidbody", gameObject);
+    }
+
     public virtual void OnTriggerEnter(Collider collider)
     {
         DamageRecever damageRecever = collider.GetComponent<DamageRecever>();
@@ -24,13 +32,5 @@ public abstract class DamageSender : SaiMonoBehaviour
     protected virtual void Send(DamageRecever damageRecever)
     {
         damageRecever.Deduct(this.damage);
-    }
-
-    protected virtual void LoadRigidbody()
-    {
-        if(this.rigid != null) return;
-        this.rigid = GetComponent<Rigidbody>();
-        this.rigid.useGravity = false;
-        Debug.Log(transform.name + " LoadRigidbody", gameObject);
-    }
+    }    
 }
