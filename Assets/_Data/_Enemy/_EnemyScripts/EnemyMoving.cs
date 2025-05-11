@@ -15,7 +15,10 @@ public class EnemyMoving : SaiMonoBehaviour
     [SerializeField] protected bool isMoving = false;
     [SerializeField] protected bool isFinish = false;
 
-
+    protected virtual void OnEnable()
+    {
+        this.OnReborn();
+    }
 
     protected override void Start()
     {
@@ -100,5 +103,10 @@ public class EnemyMoving : SaiMonoBehaviour
         else this.isMoving = false;
 
         this.enemyCtrl.Animator.SetBool("isMoving", this.isMoving);
+    }
+
+    protected virtual void OnReborn()
+    {
+        this.isFinish = false;
     }
 }

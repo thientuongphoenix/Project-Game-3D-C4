@@ -6,6 +6,7 @@ public class EnemyDamageReceiver : DamageRecever
     [SerializeField] protected CapsuleCollider capsuleCollider;
     [SerializeField] protected EnemyCtrl enemyCtrl;
     
+    
     protected override void LoadComponent()
     {
         base.LoadComponent();
@@ -48,5 +49,11 @@ public class EnemyDamageReceiver : DamageRecever
     protected virtual void Disappear()
     {
         this.enemyCtrl.Despawn.DoDespawn();
+    }
+
+    protected override void OnReborn()
+    {
+        base.OnReborn();
+        this.capsuleCollider.enabled = true;
     }
 }
