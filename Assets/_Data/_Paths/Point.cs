@@ -31,7 +31,7 @@ public class Point : SaiMonoBehaviour
         }
         else
         {
-            Debug.Log("Đây là đứa con cuối cùng rồi!");
+            //Debug.Log("Đây là đứa con cuối cùng rồi!");
         }
     }
 }
