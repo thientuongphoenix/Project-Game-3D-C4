@@ -8,7 +8,6 @@ public class EnemyMoving : SaiMonoBehaviour
     //[SerializeField] protected int pathIndex = 0;
     [SerializeField] protected string pathName = "Path_0";
     [SerializeField] protected Path enemyPath;
-
     [SerializeField] protected Point currentPoint;
     [SerializeField] protected float pointDistance = Mathf.Infinity;
     [SerializeField] protected float stopDistance = 1f;
@@ -53,6 +52,12 @@ public class EnemyMoving : SaiMonoBehaviour
     protected virtual void Moving()
     {
         if (!this.canMove)
+        {
+            this.enemyCtrl.Agent.isStopped = true;
+            return;
+        }
+
+        if (this.enemyCtrl.EnemyDamageReceiver.IsDead())
         {
             this.enemyCtrl.Agent.isStopped = true;
             return;

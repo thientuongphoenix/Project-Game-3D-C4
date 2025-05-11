@@ -667,6 +667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 1966533251}
   spawner: {fileID: 399811396}
+  isDespawnByTime: 0
   timeLife: 7
   currentTime: 7
 --- !u!1 &399811394
@@ -929,6 +930,7 @@ MonoBehaviour:
   agent: {fileID: 542501271}
   animator: {fileID: 1287898267}
   towerTargetable: {fileID: 1549600699}
+  enemyDamageReceiver: {fileID: 2120467186}
 --- !u!1001 &591538126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1314,6 +1316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 542501272}
   spawner: {fileID: 399811396}
+  isDespawnByTime: 0
   timeLife: 7
   currentTime: 7
 --- !u!1001 &877897383
@@ -1894,6 +1897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 1657298258}
   spawner: {fileID: 399811396}
+  isDespawnByTime: 0
   timeLife: 7
   currentTime: 7
 --- !u!1001 &1140073106
@@ -2657,7 +2661,7 @@ MonoBehaviour:
   towerCtrl: {fileID: 1995209484}
   currentFirePoint: 0
   targetLoadSpeed: 1
-  shootingSpeed: 1
+  shootingSpeed: 0.5
   rotationSpeed: 2
   target: {fileID: 0}
   bulletSpawner: {fileID: 0}
@@ -2911,6 +2915,7 @@ MonoBehaviour:
   agent: {fileID: 1657298257}
   animator: {fileID: 1626230551}
   towerTargetable: {fileID: 1926416326}
+  enemyDamageReceiver: {fileID: 94263729}
 --- !u!1001 &1667962421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3678,6 +3683,7 @@ MonoBehaviour:
   agent: {fileID: 1966533250}
   animator: {fileID: 760284885}
   towerTargetable: {fileID: 1058190993}
+  enemyDamageReceiver: {fileID: 2096076893}
 --- !u!1 &1995209483
 GameObject:
   m_ObjectHideFlags: 0
@@ -3903,8 +3909,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096076891}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.67, y: 0, z: 0.25999832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3990,8 +3996,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120467184}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.16, y: 0, z: -0.54999924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4361,6 +4367,10 @@ PrefabInstance:
     - target: {fileID: 3835480964415137915, guid: 01ab722255828bd438e21e4f5cd38ea9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769585513135255637, guid: 01ab722255828bd438e21e4f5cd38ea9, type: 3}
+      propertyPath: damage
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

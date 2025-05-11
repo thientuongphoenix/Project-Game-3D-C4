@@ -14,6 +14,9 @@ public abstract class EnemyCtrl : PoolObj
     [SerializeField] protected TowerTargetable towerTargetable;
     public TowerTargetable TowerTargetable => towerTargetable;
 
+    [SerializeField] protected EnemyDamageReceiver enemyDamageReceiver;
+    public EnemyDamageReceiver EnemyDamageReceiver => enemyDamageReceiver;
+
     protected override void LoadComponent()
     {
         base.LoadComponent();
@@ -21,6 +24,7 @@ public abstract class EnemyCtrl : PoolObj
         this.LoadModel();
         this.LoadAnimator();
         this.LoadTowerTargetable();
+        this.LoadEnemyDamageReceiver();
     }
 
     protected virtual void LoadNavMeshAgent()
@@ -54,5 +58,12 @@ public abstract class EnemyCtrl : PoolObj
         this.towerTargetable = transform.GetComponentInChildren<TowerTargetable>();
         this.towerTargetable.transform.localPosition = new Vector3(0, 0.4f, 0);
         Debug.Log(transform.name + ": LoadTowerTargetable", gameObject);
+    }
+
+    protected virtual void LoadEnemyDamageReceiver()
+    {
+        if (this.enemyDamageReceiver != null) return;
+        this.enemyDamageReceiver = GetComponentInChildren<EnemyDamageReceiver>();
+        Debug.Log(transform.name + ": LoadEnemyDamageReceiver", gameObject);
     }
 }

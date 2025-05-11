@@ -23,7 +23,7 @@ public abstract class DamageRecever : SaiMonoBehaviour
         return this.currentHP;
     }
 
-    protected virtual bool IsDead()
+    public virtual bool IsDead()
     {
         return this.isDead = this.currentHP <= 0;
     }
