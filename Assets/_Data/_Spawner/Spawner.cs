@@ -29,10 +29,10 @@ public abstract class Spawner<T> : SaiMonoBehaviour where T : PoolObj
 
     public virtual T Spawn(T prefab, Vector3 position)
     {
-        T newBullet = this.Spawn(prefab);
-        newBullet.transform.position = position;
+        T newObject = this.Spawn(prefab);
+        newObject.transform.position = position;
 
-        return newBullet;
+        return newObject;
     }
 
     public virtual void Despawn(Transform obj)
