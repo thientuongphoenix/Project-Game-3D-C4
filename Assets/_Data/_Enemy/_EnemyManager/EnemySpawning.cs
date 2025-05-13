@@ -5,7 +5,7 @@ public class EnemySpawning : EnemyManagerAbstract
 {
     [SerializeField] protected float spawnSpeed = 1f;
     [SerializeField] protected int maxSpawn = 10;
-    protected List<EnemyCtrl> spawnedEnemies = new();
+    protected List<T> spawnedEnemies = new();
 
     protected override void Start()
     {
@@ -24,23 +24,23 @@ public class EnemySpawning : EnemyManagerAbstract
 
       if(this.spawnedEnemies.Count > this.maxSpawn) return;
 
-      EnemyCtrl prefab = this.GetEnemyPrefab();
+      T prefab = this.GetEnemyPrefab();
 
-      EnemyCtrl newEnemy = this.enemyManagerCtrl.EnemySpawner.Spawn(prefab, transform.position);
+      T newEnemy = this.enemyManagerCtrl.EnemySpawner.Spawn(prefab, transform.position);
       newEnemy.gameObject.SetActive(true);
 
       this.spawnedEnemies.Add(newEnemy);
       Debug.Log("Spawning");
     }
 
-    protected virtual EnemyCtrl GetEnemyPrefab()
+    protected virtual T GetEnemyPrefab()
     {
       return this.enemyManagerCtrl.EnemyPrefabs.GetRandom();
     }
 
     protected virtual void RemoveDeadOne()
     {
-      foreach(EnemyCtrl enemyCtrl in this.spawnedEnemies)
+      foreach(T enemyCtrl in this.spawnedEnemies)
       {
         if(enemyCtrl.EnemyDamageReceiver.IsDead())
         {

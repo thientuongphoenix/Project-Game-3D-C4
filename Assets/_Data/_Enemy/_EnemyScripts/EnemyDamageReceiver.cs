@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyDamageReceiver : DamageRecever
 {
     [SerializeField] protected CapsuleCollider capsuleCollider;
-    [SerializeField] protected EnemyCtrl enemyCtrl;
+    [SerializeField] protected T enemyCtrl;
     
     
     protected override void LoadComponent()
@@ -28,7 +28,7 @@ public class EnemyDamageReceiver : DamageRecever
     protected virtual void LoadEnemyCtrl()
     {
         if(this.enemyCtrl != null) return;
-        this.enemyCtrl = GetComponentInParent<EnemyCtrl>();
+        this.enemyCtrl = GetComponentInParent<T>();
         Debug.Log(transform.name + " LoadAnimator", gameObject);
     }
 

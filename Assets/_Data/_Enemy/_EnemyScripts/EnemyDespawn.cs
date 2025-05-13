@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyDespawn : Despawn<EnemyCtrl>
+public class EnemyDespawn : Despawn<T>
 {
     protected override void ResetValue()
     {

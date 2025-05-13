@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemySpawner : Spawner<EnemyCtrl>
+public class EnemySpawner : Spawner<T>
 {
     
 }

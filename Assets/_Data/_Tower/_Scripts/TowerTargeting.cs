@@ -10,10 +10,10 @@ public class TowerTargeting : SaiMonoBehaviour
     [SerializeField] protected SphereCollider sphereCollider;
     [SerializeField] protected Rigidbody rigid;
 
-    [SerializeField] protected EnemyCtrl nearest;
-    public EnemyCtrl Nearest => nearest;
+    [SerializeField] protected T nearest;
+    public T Nearest => nearest;
     
-    [SerializeField] protected List<EnemyCtrl> enemies = new();
+    [SerializeField] protected List<T> enemies = new();
 
     protected virtual void FixedUpdate()
     {
@@ -58,7 +58,7 @@ public class TowerTargeting : SaiMonoBehaviour
     protected virtual void AddEnemy(Collider collider)
     {
         if (collider.name != Const.TOWER_TARGETABLE) return;
-        EnemyCtrl enemyCtrl = collider.transform.parent.GetComponent<EnemyCtrl>();
+        T enemyCtrl = collider.transform.parent.GetComponent<T>();
 
         if(enemyCtrl.EnemyDamageReceiver.IsDead()) return;
 
@@ -70,7 +70,7 @@ public class TowerTargeting : SaiMonoBehaviour
     {
         //Debug.Log("RemoveEnemy: " + collider.name);
 
-        foreach(EnemyCtrl enemyCtrl in this.enemies)
+        foreach(T enemyCtrl in this.enemies)
         {
             if(collider.transform.parent == enemyCtrl.transform)
             {
@@ -84,7 +84,7 @@ public class TowerTargeting : SaiMonoBehaviour
     {
         float nearestDistance = Mathf.Infinity;
         float enemyDistance;
-        foreach(EnemyCtrl enemyCtrl in this.enemies)
+        foreach(T enemyCtrl in this.enemies)
         {
             enemyDistance = Vector3.Distance(transform.position, enemyCtrl.transform.position);
             if(enemyDistance < nearestDistance)
@@ -97,7 +97,7 @@ public class TowerTargeting : SaiMonoBehaviour
 
     protected virtual void RemoveDeadEnemy()
     {
-        foreach (EnemyCtrl enemyCtrl in this.enemies)
+        foreach (T enemyCtrl in this.enemies)
         {
             if(enemyCtrl.EnemyDamageReceiver.IsDead()) 
             {

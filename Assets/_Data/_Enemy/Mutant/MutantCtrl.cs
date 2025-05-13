@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MutantCtrl : EnemyCtrl
+public class MutantCtrl : T
 {
     public override string GetName()
     {
