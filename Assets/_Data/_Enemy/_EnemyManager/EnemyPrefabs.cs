@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyPrefabs : EnemyManagerAbstract
 {
-    [SerializeField] protected List<T> prefabs = new();
+    [SerializeField] protected List<EnemyCtrl> prefabs = new();
 
     protected override void Awake()
     {
@@ -19,7 +19,7 @@ public class EnemyPrefabs : EnemyManagerAbstract
 
     protected virtual void HidePrefabs()
     {
-        foreach (T enemyCtrl in this.prefabs)
+        foreach (EnemyCtrl enemyCtrl in this.prefabs)
         {
             enemyCtrl.gameObject.SetActive(false);
         }
@@ -30,13 +30,13 @@ public class EnemyPrefabs : EnemyManagerAbstract
         if(this.prefabs.Count > 0) return;
         foreach(Transform child in transform)
         {
-            T enemyCtrl = child.GetComponent<T>();
+            EnemyCtrl enemyCtrl = child.GetComponent<EnemyCtrl>();
             if(enemyCtrl) this.prefabs.Add(enemyCtrl);
         }
         Debug.Log(transform.name + ": LoadEnemyPrefabs", gameObject);
     }
 
-    public virtual T GetRandom()
+    public virtual EnemyCtrl GetRandom()
     {
         int rand = Random.Range(0, this.prefabs.Count);
         return this.prefabs[rand];

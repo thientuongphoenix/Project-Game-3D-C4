@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WarrokCtrl : T
+public class WarrokCtrl : EnemyCtrl
 {
     public override string GetName()
     {

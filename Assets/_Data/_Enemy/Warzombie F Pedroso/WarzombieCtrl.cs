@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WarzombieCtrl : T
+public class WarzombieCtrl : EnemyCtrl
 {
     public override string GetName()
     {

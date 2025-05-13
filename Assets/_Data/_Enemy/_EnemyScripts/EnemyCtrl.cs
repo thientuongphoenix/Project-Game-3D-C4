@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class T : PoolObj
+public abstract class EnemyCtrl : PoolObj
 {
     [SerializeField] protected Transform model;
     [SerializeField] protected NavMeshAgent agent;

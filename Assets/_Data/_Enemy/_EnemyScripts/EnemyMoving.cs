@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class EnemyMoving : SaiMonoBehaviour
 {
     //public GameObject target;
-    [SerializeField] protected T enemyCtrl;
+    [SerializeField] protected EnemyCtrl enemyCtrl;
     //[SerializeField] protected int pathIndex = 0;
     [SerializeField] protected string pathName = "Path_0";
     [SerializeField] protected Path enemyPath;
@@ -41,7 +41,7 @@ public class EnemyMoving : SaiMonoBehaviour
     protected virtual void LoadEnemyCtrl()
     {
         if (this.enemyCtrl != null) return;
-        this.enemyCtrl = transform.parent.GetComponent<T>();
+        this.enemyCtrl = transform.parent.GetComponent<EnemyCtrl>();
         Debug.Log(transform.name + ": LoadNavMeshAgent", gameObject);
     }
 
