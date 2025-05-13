@@ -77,6 +77,8 @@ public class TowerTargeting : SaiMonoBehaviour
         {
             if(collider.transform.parent == enemyCtrl.transform)
             {
+                if(enemyCtrl == this.nearest) this.nearest = null;
+
                 this.enemies.Remove(enemyCtrl);
                 return;
             }

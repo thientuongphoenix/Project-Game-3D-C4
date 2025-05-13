@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigid: {fileID: 8782940948365169045}
-  damage: 1
+  damage: 7
   bulletCtrl: {fileID: 1947081628729204955}
   sphereCollider: {fileID: 7018245736299059147}
 --- !u!1 &8071260587133057101
@@ -315,5 +315,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 7430133729942992892}
   spawner: {fileID: 0}
+  isDespawnByTime: 1
   timeLife: 7
   currentTime: 7
