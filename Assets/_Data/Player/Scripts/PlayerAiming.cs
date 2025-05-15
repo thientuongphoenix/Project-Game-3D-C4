@@ -25,11 +25,14 @@ public class PlayerAiming : PlayerAbstract
         this.playerCtrl.ThirdPersonController.RotateToPosition(crosshairPointer.transform.position);
         this.playerCtrl.ThirdPersonController.lockRotation = true;
         this.playerCtrl.ThirdPersonController.isSprinting = false;
+
+        this.playerCtrl.AimingRig.weight = 1f;
     }
 
     protected virtual void LookFar()
     {
         this.playerCtrl.ThirdPersonCamera.defaultDistance = this.farLookDistance;
         this.playerCtrl.ThirdPersonController.lockRotation = false;
+        this.playerCtrl.AimingRig.weight = 0f;
     }
 }
