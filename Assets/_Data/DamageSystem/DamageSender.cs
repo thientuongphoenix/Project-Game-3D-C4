@@ -7,9 +7,9 @@ public abstract class DamageSender : SaiMonoBehaviour
     [SerializeField] protected Rigidbody rigid;
     [SerializeField] protected int damage = 1;
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadRigidbody();
     }
 

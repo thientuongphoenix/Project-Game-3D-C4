@@ -31,9 +31,9 @@ public class EnemyMoving : SaiMonoBehaviour
         this.CheckMoving();
     }
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadEnemyCtrl();
         //this.LoadTarget();
     }

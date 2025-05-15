@@ -23,9 +23,9 @@ public class TowerShooting : TowerAbstract
         this.Looking();
     }
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
     }
 
     protected virtual void Looking()

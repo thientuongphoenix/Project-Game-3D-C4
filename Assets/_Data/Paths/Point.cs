@@ -6,9 +6,9 @@ public class Point : SaiMonoBehaviour
     [SerializeField] protected Point nextPoint;
     public Point NextPoint => nextPoint;
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadNextPoint();
     }
 

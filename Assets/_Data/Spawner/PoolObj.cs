@@ -7,9 +7,9 @@ public abstract class PoolObj : SaiMonoBehaviour
 
     public abstract string GetName();
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadDespawn();
     }
 

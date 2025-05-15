@@ -5,9 +5,9 @@ public class BulletCtrl : SaiMonoBehaviour
     [SerializeField] protected Bullet bullet;
     public Bullet Bullet => bullet;
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadBullet();
     }
 

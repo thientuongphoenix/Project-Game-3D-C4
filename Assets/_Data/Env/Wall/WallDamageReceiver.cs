@@ -5,9 +5,9 @@ public class WallDamageReceiver : DamageRecever
 {
     [SerializeField] protected BoxCollider boxCollider;
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadBoxCollider();
     }
 

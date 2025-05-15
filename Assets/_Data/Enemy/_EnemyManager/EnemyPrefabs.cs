@@ -11,9 +11,9 @@ public class EnemyPrefabs : EnemyManagerAbstract
         this.HidePrefabs();
     }
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadEnemyPrefabs();
     }
 

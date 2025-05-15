@@ -9,16 +9,16 @@ public class SaiMonoBehaviour : MonoBehaviour
 
     protected virtual void Start()
     {
-        this.LoadComponent();
+        this.LoadComponents();
     }
 
     protected virtual void Reset()
     {
-        this.LoadComponent();
+        this.LoadComponents();
         this.ResetValue();
     }
 
-    protected virtual void LoadComponent()
+    protected virtual void LoadComponents()
     {
         //For override
     }

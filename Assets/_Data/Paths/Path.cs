@@ -7,9 +7,9 @@ public class Path : SaiMonoBehaviour
     [SerializeField] protected List<Point> points = new();
     public Point GetPoint(int pointNumber) => points[pointNumber];
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadPoints();
     }
 

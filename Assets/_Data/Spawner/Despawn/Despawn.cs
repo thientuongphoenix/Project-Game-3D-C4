@@ -13,9 +13,9 @@ public abstract class Despawn<T> : DespawnBase where T : PoolObj
         this.DespawnByTime();
     }
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadParent();
         this.LoadSpawner();
     }

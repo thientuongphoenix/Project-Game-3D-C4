@@ -8,9 +8,9 @@ public class EnemyManagerCtrl : SaiMonoBehaviour
     [SerializeField] protected EnemyPrefabs enemyPrefabs;
     public EnemyPrefabs EnemyPrefabs => enemyPrefabs;
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadEnemySpawner();
         this.LoadEnemyPrefabs();
     }

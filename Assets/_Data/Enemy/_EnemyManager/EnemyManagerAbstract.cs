@@ -4,9 +4,9 @@ public class EnemyManagerAbstract : SaiMonoBehaviour
 {
     [SerializeField] protected EnemyManagerCtrl enemyManagerCtrl;
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadEnemyManagerCtrl();
     }
 

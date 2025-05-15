@@ -11,9 +11,9 @@ public class PathsManager : SaiSingleton<PathsManager>
         base.Awake();
     }
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadPaths();
     }
 

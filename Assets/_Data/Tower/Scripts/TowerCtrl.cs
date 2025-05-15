@@ -29,9 +29,9 @@ public class TowerCtrl : SaiMonoBehaviour
         this.HidePrefabs();
     }
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadModel();
         this.LoadTowerTargeting();
         this.LoadBulletSpawner();
