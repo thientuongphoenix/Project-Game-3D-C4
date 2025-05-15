@@ -1240,7 +1240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276753ad04e5eb84f944a2fff0664389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCtrl: {fileID: 0}
+  playerCtrl: {fileID: 2064690430}
+  isAlwaysAiming: 0
 --- !u!1 &516045149 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8416310566099998672, guid: 54e31f77cf8b7624da7de6feeaf15c09, type: 3}
@@ -6034,7 +6035,7 @@ Animator:
   m_GameObject: {fileID: 2064690423}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 627664167c6af1a44a66de21d2a5ed29, type: 3}
-  m_Controller: {fileID: 9100000, guid: 46281f36a9440d04f90cbe3befd3239b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9a103966f3a36334b8b7ed4de470a041, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
