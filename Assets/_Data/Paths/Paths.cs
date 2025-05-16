@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Path : SaiMonoBehaviour
+public class Paths : SaiMonoBehaviour
 {
     [SerializeField] protected List<Point> points = new();
     public Point GetPoint(int pointNumber) => points[pointNumber];

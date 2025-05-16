@@ -7,7 +7,7 @@ public class EnemyMoving : SaiMonoBehaviour
     [SerializeField] protected EnemyCtrl enemyCtrl;
     //[SerializeField] protected int pathIndex = 0;
     [SerializeField] protected string pathName = "Path_0";
-    [SerializeField] protected Path enemyPath;
+    [SerializeField] protected Paths enemyPath;
     [SerializeField] protected Point currentPoint;
     [SerializeField] protected float pointDistance = Mathf.Infinity;
     [SerializeField] protected float stopDistance = 1f;
