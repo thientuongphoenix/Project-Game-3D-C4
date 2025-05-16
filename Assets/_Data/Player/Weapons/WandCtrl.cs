@@ -1,16 +1,12 @@
 using UnityEngine;
 
-public class WandCtrl : MonoBehaviour
+public class WandCtrl : SaiMonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void ResetValue()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.ResetValue();
+        transform.localPosition = new Vector3(0.004f, 0.059f, 0.017f);
+        transform.localRotation = Quaternion.Euler(-35.652f, 18.413f, 62.431f);
+        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
     }
 }
