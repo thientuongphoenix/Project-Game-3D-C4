@@ -22,12 +22,9 @@ public class PlayerAiming : PlayerAbstract
     {
         this.playerCtrl.ThirdPersonCamera.defaultDistance = this.closeLookDistance;
 
-        CrosshairPointer crosshairPointer = this.playerCtrl.CrosshairPointer;
-        this.playerCtrl.ThirdPersonController.RotateToPosition(crosshairPointer.transform.position);
-        this.playerCtrl.ThirdPersonController.lockRotation = true;
-        this.playerCtrl.ThirdPersonController.isSprinting = false;
-        //this.playerCtrl.ThirdPersonController.locomotionType = vThirdPersonMotor.LocomotionType.OnlyStrafe;
-        //this.playerCtrl.ThirdPersonController.rotateByWorld = true;
+        //CrosshairPointer crosshairPointer = this.playerCtrl.CrosshairPointer;
+        //this.playerCtrl.ThirdPersonController.RotateToPosition(crosshairPointer.transform.position);
+        this.playerCtrl.ThirdPersonController.locomotionType = vThirdPersonMotor.LocomotionType.OnlyStrafe;
 
         this.playerCtrl.AimingRig.weight = 1f;
     }
@@ -35,9 +32,7 @@ public class PlayerAiming : PlayerAbstract
     protected virtual void LookFar()
     {
         this.playerCtrl.ThirdPersonCamera.defaultDistance = this.farLookDistance;
-        this.playerCtrl.ThirdPersonController.lockRotation = false;
-        //this.playerCtrl.ThirdPersonController.locomotionType = vThirdPersonMotor.LocomotionType.FreeWithStrafe;
-        //this.playerCtrl.ThirdPersonController.rotateByWorld = false;
+        this.playerCtrl.ThirdPersonController.locomotionType = vThirdPersonMotor.LocomotionType.FreeWithStrafe;
         this.playerCtrl.AimingRig.weight = 0f;
     }
 }

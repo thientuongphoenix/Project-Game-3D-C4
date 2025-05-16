@@ -21,10 +21,10 @@ public class CrosshairPointer : SaiMonoBehaviour
             transform.position = hit.point;
             this.hitObj = hit.collider;
         }
-        else
-        {
-            // Nếu không có va chạm, đặt crosshair ở vị trí xa nhất có thể
-            transform.position = ray.origin + ray.direction * maxDistance;
-        }
+        // else
+        // {
+        //     // Nếu không có va chạm, đặt crosshair ở vị trí xa nhất có thể
+        //     transform.position = ray.origin + ray.direction * maxDistance;
+        // }
     }
 }
