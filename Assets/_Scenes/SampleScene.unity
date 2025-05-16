@@ -6742,6 +6742,7 @@ GameObject:
   - component: {fileID: 2064690425}
   - component: {fileID: 2064690429}
   - component: {fileID: 2064690430}
+  - component: {fileID: 2064690431}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6926,6 +6927,22 @@ MonoBehaviour:
   thirdPersonCamera: {fileID: 2700874172433638638}
   crosshairPointer: {fileID: 1609514410}
   aimingRig: {fileID: 1632272071}
+--- !u!114 &2064690431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064690423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RigLayers:
+  - m_Rig: {fileID: 1632272071}
+    m_Active: 1
+  m_Effectors: []
 --- !u!4 &2065137559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4386716856021789656, guid: 291a8ef072dee6a46b7f3e926fa46643, type: 3}
@@ -7856,56 +7873,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5158492953906854715, guid: 291a8ef072dee6a46b7f3e926fa46643, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8307098650367412275}
-    - targetCorrespondingSourceObject: {fileID: 5158492953906854715, guid: 291a8ef072dee6a46b7f3e926fa46643, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8307098650367412274}
-    - targetCorrespondingSourceObject: {fileID: 5158492953906854715, guid: 291a8ef072dee6a46b7f3e926fa46643, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8307098650367412273}
   m_SourcePrefab: {fileID: 100100000, guid: 291a8ef072dee6a46b7f3e926fa46643, type: 3}
 --- !u!4 &8307098650367412272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2333578699592687940, guid: 291a8ef072dee6a46b7f3e926fa46643, type: 3}
   m_PrefabInstance: {fileID: 8307098650367412271}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8307098650367412273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806650094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RigLayers:
-  - m_Rig: {fileID: 1632272071}
-    m_Active: 1
-  m_Effectors: []
---- !u!95 &8307098650367412274
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806650094}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8307098650367412275
 MonoBehaviour:
   m_ObjectHideFlags: 0
