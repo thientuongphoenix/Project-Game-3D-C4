@@ -34,9 +34,9 @@ public class TowerTargeting : SaiMonoBehaviour
         this.RemoveEnemy(collider);
     }
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadSphereCollider();
         this.LoadRigidbody();
     }

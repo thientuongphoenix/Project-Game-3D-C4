@@ -7,9 +7,9 @@ public class EnemyDamageReceiver : DamageRecever
     [SerializeField] protected EnemyCtrl enemyCtrl;
     
     
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadCapsuleCollider();
         this.LoadEnemyCtrl();
     }

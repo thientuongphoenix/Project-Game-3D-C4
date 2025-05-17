@@ -6,9 +6,9 @@ public class BulletDamageSender : DamageSender
     [SerializeField] protected BulletCtrl bulletCtrl;
     [SerializeField] protected SphereCollider sphereCollider;
     
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadSphereCollider();
         this.LoadBulletCtrl();
     }

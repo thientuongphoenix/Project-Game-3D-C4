@@ -17,9 +17,9 @@ public abstract class EnemyCtrl : PoolObj
     [SerializeField] protected EnemyDamageReceiver enemyDamageReceiver;
     public EnemyDamageReceiver EnemyDamageReceiver => enemyDamageReceiver;
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadNavMeshAgent();
         this.LoadModel();
         this.LoadAnimator();

@@ -3,6 +3,7 @@ using UnityEngine;
 public class CrosshairPointer : SaiMonoBehaviour
 {
     protected float maxDistance = 100f;
+    protected Collider hitObj;
     [SerializeField] LayerMask layerMask = -1;
 
     protected virtual void Update()
@@ -18,11 +19,12 @@ public class CrosshairPointer : SaiMonoBehaviour
         if(Physics.Raycast(ray, out RaycastHit hit, maxDistance, layerMask))
         {
             transform.position = hit.point;
+            this.hitObj = hit.collider;
         }
-        else
-        {
-            // Nếu không có va chạm, đặt crosshair ở vị trí xa nhất có thể
-            transform.position = ray.origin + ray.direction * maxDistance;
-        }
+        // else
+        // {
+        //     // Nếu không có va chạm, đặt crosshair ở vị trí xa nhất có thể
+        //     transform.position = ray.origin + ray.direction * maxDistance;
+        // }
     }
 }

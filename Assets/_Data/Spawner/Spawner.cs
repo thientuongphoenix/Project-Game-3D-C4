@@ -7,9 +7,9 @@ public abstract class Spawner<T> : SaiMonoBehaviour where T : PoolObj
     [SerializeField] protected PoolHolder poolHolder;
     [SerializeField] protected List<T> inPoolObjs;
 
-    protected override void LoadComponent()
+    protected override void LoadComponents()
     {
-        base.LoadComponent();
+        base.LoadComponents();
         this.LoadPoolHolder();
     }
 
