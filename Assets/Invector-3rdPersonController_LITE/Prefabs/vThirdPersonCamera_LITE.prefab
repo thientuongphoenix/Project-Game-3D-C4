@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2700874171910072506}
   - component: {fileID: 3851937974465073233}
   - component: {fileID: 2700874171910072507}
-  - component: {fileID: 844905226773344995}
+  - component: {fileID: 5384253506183851932}
   m_Layer: 0
   m_Name: vThirdPersonCamera_LITE
   m_TagString: MainCamera
@@ -146,7 +146,7 @@ MonoBehaviour:
   currentStateName: 
   currentTarget: {fileID: 0}
   movementSpeed: {x: 0, y: 0}
---- !u!114 &844905226773344995
+--- !u!114 &5384253506183851932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
