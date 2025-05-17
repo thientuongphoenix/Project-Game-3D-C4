@@ -5305,6 +5305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1576361837}
+  - component: {fileID: 1576361838}
   m_Layer: 0
   m_Name: AimingRightHand_hint
   m_TagString: Untagged
@@ -5320,13 +5321,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576361836}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.842264, y: 1.3842742, z: -21.811306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.84226, y: 1.384274, z: -21.81131}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1858879132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576361838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576361836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1caffa26f265647a197f9bebbbeef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1584014082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6498862473288073083, guid: 2e118808d85d5384281650c79793fc9c, type: 3}
@@ -6615,6 +6628,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2043223212}
+  - component: {fileID: 2043223213}
   m_Layer: 0
   m_Name: AimingRightHand_target
   m_TagString: Untagged
@@ -6630,13 +6644,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043223211}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.70212924, y: 0.14811912, z: 0.36878228, w: -0.5908256}
-  m_LocalPosition: {x: -20.880966, y: 1.391, z: -21.46787}
+  m_LocalRotation: {x: 0.70213056, y: -0.14811756, z: -0.36877838, w: 0.59082687}
+  m_LocalPosition: {x: -20.88097, y: 1.391, z: -21.46787}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1858879132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2043223213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043223211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb091c3722e495488a2095115f98413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2067919831
 PrefabInstance:
   m_ObjectHideFlags: 0
