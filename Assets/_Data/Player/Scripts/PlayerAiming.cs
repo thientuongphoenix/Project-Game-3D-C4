@@ -26,6 +26,8 @@ public class PlayerAiming : PlayerAbstract
 
         CrosshairPointer crosshairPointer = this.playerCtrl.CrosshairPointer;
         this.playerCtrl.ThirdPersonController.RotateToPosition(crosshairPointer.transform.position);
+
+        this.playerCtrl.ThirdPersonController.isSprinting = false;
     }
 
     protected virtual void LookFar()
