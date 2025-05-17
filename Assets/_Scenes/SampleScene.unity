@@ -1450,6 +1450,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 579155400}
+  - component: {fileID: 579155401}
   m_Layer: 0
   m_Name: PlayerAiming
   m_TagString: Untagged
@@ -1472,6 +1473,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1004817535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &579155401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579155399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276753ad04e5eb84f944a2fff0664389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCtrl: {fileID: 1004817540}
+  isAlwaysAiming: 0
 --- !u!1001 &591538126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3232,6 +3247,7 @@ GameObject:
   - component: {fileID: 1004817538}
   - component: {fileID: 1004817537}
   - component: {fileID: 1004817536}
+  - component: {fileID: 1004817540}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3253,8 +3269,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1233127718}
-  - {fileID: 1175650965}
   - {fileID: 579155400}
+  - {fileID: 1175650965}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1004817536
@@ -3276,10 +3292,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.29
-  m_Height: 1.9
+  m_Radius: 0.14056396
+  m_Height: 1.3585695
   m_Direction: 1
-  m_Center: {x: 0, y: 0.95, z: 0}
+  m_Center: {x: 0.0010681152, y: 0.67928475, z: 0}
 --- !u!54 &1004817537
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3378,6 +3394,21 @@ MonoBehaviour:
   groundMinDistance: 0.25
   groundMaxDistance: 0.5
   slopeLimit: 45
+--- !u!114 &1004817540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004817534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310f1f35507a58b4ba54e59f8bf74bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thirdPersonCtrl: {fileID: 1004817539}
+  thirdPersonCamera: {fileID: 2700874170962733834}
+  crosshairPointer: {fileID: 1175650966}
 --- !u!1 &1045111347
 GameObject:
   m_ObjectHideFlags: 0
@@ -7036,8 +7067,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   lockCamera: 0
-  rightOffset: 0.5
-  defaultDistance: 1.5
+  rightOffset: 0.6
+  defaultDistance: 1.3
   height: 1.4
   smoothFollow: 10
   xMouseSensitivity: 3
