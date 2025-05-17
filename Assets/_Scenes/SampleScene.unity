@@ -1572,7 +1572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCtrl: {fileID: 1004817540}
-  isAlwaysAiming: 0
+  isAlwaysAiming: 1
 --- !u!1001 &591538126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6630,8 +6630,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043223211}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.509833, y: -0.44196773, z: 0.57810223, w: -0.45883837}
-  m_LocalPosition: {x: -20.657902, y: 1.3842633, z: -21.811306}
+  m_LocalRotation: {x: -0.70212924, y: 0.14811912, z: 0.36878228, w: -0.5908256}
+  m_LocalPosition: {x: -20.880966, y: 1.391, z: -21.46787}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
