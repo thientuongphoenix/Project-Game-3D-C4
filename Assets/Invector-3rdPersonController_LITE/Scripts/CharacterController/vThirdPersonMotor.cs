@@ -107,7 +107,7 @@ namespace Invector.vCharacterController
 
         public void Init()
         {
-            // animator = GetComponent<Animator>();
+            //animator = GetComponent<Animator>();
             animator = GetComponentInChildren<Animator>();
             animator.updateMode = AnimatorUpdateMode.Fixed;
 
