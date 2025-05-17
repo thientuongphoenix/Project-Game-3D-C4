@@ -1,5 +1,5 @@
 using UnityEngine;
-using Invector.vCharacterController;
+//using Invector.vCharacterController;
 
 public class PlayerAiming : PlayerAbstract
 {
@@ -20,19 +20,23 @@ public class PlayerAiming : PlayerAbstract
 
     protected virtual void LookClose()
     {
-        //this.playerCtrl.ThirdPersonCamera.defaultDistance = this.closeLookDistance;
+        this.playerCtrl.ThirdPersonCamera.defaultDistance = this.closeLookDistance;
 
-        //CrosshairPointer crosshairPointer = this.playerCtrl.CrosshairPointer;
-        //this.playerCtrl.ThirdPersonController.RotateToPosition(crosshairPointer.transform.position);
-        this.playerCtrl.ThirdPersonController.locomotionType = vThirdPersonMotor.LocomotionType.OnlyStrafe;
+        this.playerCtrl.ThirdPersonController.lockRotation = true;
+
+        CrosshairPointer crosshairPointer = this.playerCtrl.CrosshairPointer;
+        this.playerCtrl.ThirdPersonController.RotateToPosition(crosshairPointer.transform.position);
+
+        this.playerCtrl.ThirdPersonController.isSprinting = false;
 
         this.playerCtrl.AimingRig.weight = 1f;
     }
 
     protected virtual void LookFar()
     {
-        //this.playerCtrl.ThirdPersonCamera.defaultDistance = this.farLookDistance;
-        this.playerCtrl.ThirdPersonController.locomotionType = vThirdPersonMotor.LocomotionType.FreeWithStrafe;
+        this.playerCtrl.ThirdPersonCamera.defaultDistance = this.farLookDistance;
+        this.playerCtrl.ThirdPersonController.lockRotation = false;
+
         this.playerCtrl.AimingRig.weight = 0f;
     }
 }

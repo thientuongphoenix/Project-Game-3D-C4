@@ -5,7 +5,7 @@ public class AimingRightHand_target : SaiMonoBehaviour
     protected override void ResetValue()
     {
         base.ResetValue();
-        transform.localPosition = new Vector3(20.044f, 1.379263f, -13.787f);
-        transform.localRotation = Quaternion.Euler(149.502f, 90.341f, 90.974f);
+        transform.localPosition = new Vector3(-20.88097f, 1.391f, -21.46787f);
+        transform.localRotation = Quaternion.Euler(46.09f, -92.467f, -111.837f);
     }
 }

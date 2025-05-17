@@ -45,7 +45,7 @@ public class PlayerCtrl : SaiMonoBehaviour
         if (this.thirdPersonCtrl != null) return;
         this.thirdPersonCtrl = GetComponent<vThirdPersonController>();
         Debug.Log(transform.name + ": LoadThirPersonCtrl", gameObject);
-    }
+    }    
 
 
     protected virtual void LoadThirdPersonCamera()
@@ -53,10 +53,10 @@ public class PlayerCtrl : SaiMonoBehaviour
         if (this.thirdPersonCamera != null) return;
         this.thirdPersonCamera = GameObject.FindAnyObjectByType<vThirdPersonCamera>();
         this.thirdPersonCamera.rightOffset = 0.6f;
-        this.thirdPersonCamera.defaultDistance = 1.2f;
-        this.thirdPersonCamera.height = 1.3f;
-        this.thirdPersonCamera.yMinLimit = -40f;
-        this.thirdPersonCamera.yMaxLimit = 40f;
+        this.thirdPersonCamera.defaultDistance = 1.3f;
+        // this.thirdPersonCamera.height = 1.4f;
+        // this.thirdPersonCamera.yMinLimit = -40f;
+        // this.thirdPersonCamera.yMaxLimit = 80f;
         Debug.Log(transform.name + ": LoadThirdPersonCamera", gameObject);
     }
 }
