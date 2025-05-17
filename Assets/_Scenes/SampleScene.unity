@@ -3739,7 +3739,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233127717}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: b5701bef7db584c40a03c38045da64f3, type: 3}
   m_Controller: {fileID: 9100000, guid: 377abf30bbccea14c941518e9e566352, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -6730,8 +6730,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   lockCamera: 0
-  rightOffset: 0
-  defaultDistance: 2.5
+  rightOffset: 0.5
+  defaultDistance: 1.5
   height: 1.4
   smoothFollow: 10
   xMouseSensitivity: 3
