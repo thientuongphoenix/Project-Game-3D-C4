@@ -27,13 +27,13 @@ public class PlayerAiming : PlayerAbstract
         //this.playerCtrl.ThirdPersonController.locomotionType = vThirdPersonMotor.LocomotionType.OnlyStrafe;
         this.playerCtrl.ThirdPersonController.isSprinting = false;
 
-        this.playerCtrl.AimingRig.weight = 1f;
+        //this.playerCtrl.AimingRig.weight = 1f;
     }
 
     protected virtual void LookFar()
     {
         this.playerCtrl.ThirdPersonCamera.defaultDistance = this.farLookDistance;
         //this.playerCtrl.ThirdPersonController.locomotionType = vThirdPersonMotor.LocomotionType.FreeWithStrafe;
-        this.playerCtrl.AimingRig.weight = 0f;
+        //this.playerCtrl.AimingRig.weight = 0f;
     }
 }

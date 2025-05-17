@@ -1,6 +1,6 @@
 using Invector.vCharacterController;
 using UnityEngine;
-using UnityEngine.Animations.Rigging;
+//using UnityEngine.Animations.Rigging;
 
 public class PlayerCtrl : SaiMonoBehaviour
 {
@@ -14,8 +14,8 @@ public class PlayerCtrl : SaiMonoBehaviour
     [SerializeField] protected CrosshairPointer crosshairPointer;
     public CrosshairPointer CrosshairPointer => crosshairPointer;
 
-    [SerializeField] protected Rig aimingRig;
-    public Rig AimingRig => aimingRig;
+    //[SerializeField] protected Rig aimingRig;
+    //public Rig AimingRig => aimingRig;
 
     protected override void LoadComponents()
     {
@@ -28,8 +28,8 @@ public class PlayerCtrl : SaiMonoBehaviour
 
     protected virtual void LoadAimingRig()
     {
-        if(this.aimingRig != null) return;
-        this.aimingRig = transform.Find("Model").Find("AimingRig").GetComponent<Rig>();
+        //if(this.aimingRig != null) return;
+        //this.aimingRig = transform.Find("Model").Find("AimingRig").GetComponent<Rig>();
         Debug.Log(transform.name + " LoadAimingRig", gameObject);
     }
 
