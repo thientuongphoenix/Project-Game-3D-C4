@@ -5,8 +5,8 @@ public class WandCtrl : SaiMonoBehaviour
     protected override void ResetValue()
     {
         base.ResetValue();
-        transform.localPosition = new Vector3(0.004f, 0.059f, 0.017f);
-        transform.localRotation = Quaternion.Euler(-35.652f, 18.413f, 62.431f);
-        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        transform.localPosition = new Vector3(-0.0104f, 0.0548f, 0.026f);
+        transform.localRotation = Quaternion.Euler(14.578f, -43.958f, 62.673f);
+        transform.localScale = new Vector3(0.45f, 0.45f, 0.45f);
     }
 }
