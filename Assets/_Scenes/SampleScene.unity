@@ -3313,7 +3313,7 @@ MonoBehaviour:
   rotateByWorld: 0
   useContinuousSprint: 1
   sprintOnlyFree: 1
-  locomotionType: 0
+  locomotionType: 1
   freeSpeed:
     movementSmooth: 6
     animationSmooth: 0.2

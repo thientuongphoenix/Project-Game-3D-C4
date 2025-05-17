@@ -5,7 +5,7 @@ public class PlayerAiming : PlayerAbstract
 {
     [SerializeField] protected bool isAlwaysAiming = false;
     protected float closeLookDistance = 0.8f;
-    protected float farLookDistance = 1.3f;
+    protected float farLookDistance = 1.5f;
 
     private void Update()
     {
