@@ -1352,6 +1352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b1297be063c8e4b860ccdbb582ebaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCtrl: {fileID: 1004817540}
 --- !u!1 &537833379
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,6 +1763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7a489c28e17a8449850bc4cab1ddc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCtrl: {fileID: 1004817540}
 --- !u!1001 &760284883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3473,6 +3475,7 @@ MonoBehaviour:
   crosshairPointer: {fileID: 1175650966}
   aimingRig: {fileID: 1584014083}
   animator: {fileID: 543450653059221043}
+  weapons: {fileID: 1748499534}
 --- !u!1 &1045111347
 GameObject:
   m_ObjectHideFlags: 0
@@ -5690,6 +5693,17 @@ MonoBehaviour:
   paths:
   - {fileID: 3959231983631872375}
   - {fileID: 1910711022}
+--- !u!114 &1748499534 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1847281668461012273, guid: 2e118808d85d5384281650c79793fc9c, type: 3}
+  m_PrefabInstance: {fileID: 4081761610827575291}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e30d77d7f5bbf9b4f9921506c4a71e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1809221115
 PrefabInstance:
   m_ObjectHideFlags: 0

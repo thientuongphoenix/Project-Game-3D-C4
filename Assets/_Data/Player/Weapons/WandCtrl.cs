@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WandCtrl : SaiMonoBehaviour
+public class WandCtrl : WeaponAbstract
 {
     protected override void ResetValue()
     {
