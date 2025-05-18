@@ -2,31 +2,32 @@ using UnityEngine;
 
 public class InputManager : SaiSingleton<InputManager>
 {
-    protected bool isLeftClick = false;
-    protected bool isRightClick = false;
+    protected bool isAttackLight = false;
+    protected bool isAiming = false;
 
     void Update()
     {
-        this.CheckRightClick();
+        this.CheckAiming();
+        this.CheckAttackLight();
     }
 
-    protected virtual void CheckRightClick()
+    protected virtual void CheckAiming()
     {
-        this.isRightClick = Input.GetMouseButton(1);
+        this.isAiming = Input.GetMouseButton(1);
     }
 
-    protected virtual void CheckLeftClick()
+    protected virtual void CheckAttackLight()
     {
-        this.isRightClick = Input.GetMouseButton(0);
+        this.isAttackLight = Input.GetMouseButtonUp(0);
     }
 
-    public virtual bool IsRightClick()
+    public virtual bool IsAiming()
     {
-        return this.isRightClick;
+        return this.isAiming;
     }
 
-    public virtual bool IsLeftClick()
+    public virtual bool IsAttackLight()
     {
-        return this.isLeftClick;
+        return this.isAttackLight;
     }
 }
