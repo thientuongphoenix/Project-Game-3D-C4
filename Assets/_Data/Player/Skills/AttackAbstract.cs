@@ -2,9 +2,10 @@ using UnityEngine;
 
 public abstract class AttackAbstract : SaiMonoBehaviour
 {
-    void Update()
+    void LateUpdate()
     {
-        Attacking();
+        this.Attacking();
     }
+    
     protected abstract void Attacking();
 }
