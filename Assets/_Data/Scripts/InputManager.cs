@@ -2,13 +2,18 @@ using UnityEngine;
 
 public class InputManager : SaiSingleton<InputManager>
 {
-    protected bool isAttackLight = false;
     protected bool isAiming = false;
+
+    protected float attackHold = 0;
+    protected float attackLightLimit = 0.5f;
+    protected bool isAttackLight = false;
+    protected bool isAttackHeavy = false;
+    
 
     void Update()
     {
         this.CheckAiming();
-        this.CheckAttackLight();
+        this.CheckAttacking();
     }
 
     protected virtual void CheckAiming()
@@ -16,9 +21,22 @@ public class InputManager : SaiSingleton<InputManager>
         this.isAiming = Input.GetMouseButton(1);
     }
 
-    protected virtual void CheckAttackLight()
+    protected virtual void CheckAttacking()
     {
-        this.isAttackLight = Input.GetMouseButtonUp(0);
+        if(Input.GetMouseButton(0)) this.attackHold += Time.deltaTime;
+
+        if(Input.GetMouseButtonUp(0))
+        {
+            this.isAttackLight = this.attackHold < this.attackLightLimit;
+            this.attackHold = 0;
+        }
+        else
+        {
+            this.isAttackLight = false;
+        }
+
+        if(this.attackHold > this.attackLightLimit) this.isAttackHeavy = true;
+        else this.isAttackHeavy = false;
     }
 
     public virtual bool IsAiming()
@@ -29,5 +47,10 @@ public class InputManager : SaiSingleton<InputManager>
     public virtual bool IsAttackLight()
     {
         return this.isAttackLight;
+    }
+
+    public virtual bool IsAttackHeavy()
+    {
+        return this.isAttackHeavy;
     }
 }
