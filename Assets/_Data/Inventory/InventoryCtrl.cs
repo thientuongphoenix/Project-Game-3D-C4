@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class InventoryCtrl : SaiMonoBehaviour
 {
     protected List<ItemInventory> items = new();
+    public List<ItemInventory> Items => items;
 
     public abstract InvCodeName GetName();
 
