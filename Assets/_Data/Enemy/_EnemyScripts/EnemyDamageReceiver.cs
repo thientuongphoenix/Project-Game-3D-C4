@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CapsuleCollider))]
-public class EnemyDamageReceiver : DamageRecever
+public class EnemyDamageReceiver : DamageReceiver
 {
     [SerializeField] protected CapsuleCollider capsuleCollider;
     [SerializeField] protected EnemyCtrl enemyCtrl;

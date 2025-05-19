@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class DamageRecever : SaiMonoBehaviour
+public abstract class DamageReceiver : SaiMonoBehaviour
 {
     protected int maxHP = 10;
     protected int currentHP = 10;
