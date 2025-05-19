@@ -20,12 +20,12 @@ public class InventoryManager : SaiSingleton<InventoryManager>
 
     protected virtual void AddTestItems()
     {
-        // InventoryCtrl inventoryCtrl = this.GetByName(InvCodeName.Monies);
+        InventoryCtrl inventoryCtrl = this.GetByName(InvCodeName.Monies);
 
-        // ItemInventory gold = new ItemInventory();
-        // gold.itemProfile = this.GetProfileByCode(ItemCode.Gold);
-        // gold.itemCount = 11;
-        // inventoryCtrl.AddItem(gold);
+        ItemInventory gold = new ItemInventory();
+        gold.itemProfile = this.GetProfileByCode(ItemCode.Gold);
+        gold.itemCount = 1000;
+        inventoryCtrl.AddItem(gold);
 
         // ItemInventory gold2 = new ItemInventory();
         // gold2.itemProfile = this.GetProfileByCode(ItemCode.Gold);

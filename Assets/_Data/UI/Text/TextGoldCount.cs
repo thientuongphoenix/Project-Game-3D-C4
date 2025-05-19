@@ -1,26 +1,10 @@
-using TMPro;
 using UnityEngine;
 
-public class TextGoldCount : SaiMonoBehaviour
+public class TextGoldCount : TextAbstract
 {
-    [SerializeField] protected TextMeshProUGUI textPro;
-
     protected virtual void FixedUpdate()
     {
         this.LoadGoldCount();
-    }
-
-    protected override void LoadComponents()
-    {
-        base.LoadComponents();
-        this.LoadTextPro();
-    }
-
-    protected virtual void LoadTextPro()
-    {
-        if(this.textPro != null) return;
-        this.textPro = GetComponent<TextMeshProUGUI>();
-        Debug.Log(transform.name + ": LoadTextPro", gameObject);
     }
 
     protected virtual void LoadGoldCount()
