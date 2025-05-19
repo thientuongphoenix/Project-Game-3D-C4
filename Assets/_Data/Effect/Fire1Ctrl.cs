@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Fire1Ctrl : EffectCtrl
+public class Fire1Ctrl : EffectFlyAbstract
 {
     public override string GetName()
     {
