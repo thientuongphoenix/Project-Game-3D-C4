@@ -1,7 +1,7 @@
 using UnityEngine;
 
 //Script này làm viên đạn trở về Pool bằng hàm Send trong BulletDamageSender.cs
-public class WallDamageReceiver : DamageRecever
+public class WallDamageReceiver : DamageReceiver
 {
     [SerializeField] protected BoxCollider boxCollider;
 
