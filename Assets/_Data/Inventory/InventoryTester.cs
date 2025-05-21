@@ -28,34 +28,34 @@ public class InventoryTester : SaiMonoBehaviour
     }
     
     [ProButton]
-    public virtual void AddTestItems(int count)
+    public virtual void AddTestItems(ItemCode itemCode, int count)
     {
-        InventoryCtrl inventoryCtrl2 = InventoryManager.Instance.GetByName(InvCodeName.Items);
+        InventoryCtrl items = InventoryManager.Instance.GetByName(InvCodeName.Items);
 
         for (int i = 0; i < count; i++)
         {
             ItemInventory wand = new ItemInventory();
-            wand.itemProfile = InventoryManager.Instance.GetProfileByCode(ItemCode.Wand);
-            wand.itemName = "Wand";
+            wand.itemProfile = InventoryManager.Instance.GetProfileByCode(itemCode);
+            wand.itemName = wand.itemProfile.itemName;
             wand.itemCount = 1;
 
-            inventoryCtrl2.AddItem(wand);
+            items.AddItem(wand);
         }
     }
 
     [ProButton]
-    public virtual void RemoveTestItems(int count)
+    public virtual void RemoveTestItems(ItemCode itemCode, int count)
     {
-        InventoryCtrl inventoryCtrl2 = InventoryManager.Instance.GetByName(InvCodeName.Items);
+        InventoryCtrl items = InventoryManager.Instance.GetByName(InvCodeName.Items);
 
         for (int i = 0; i < count; i++)
         {
             ItemInventory wand = new ItemInventory();
-            wand.itemProfile = InventoryManager.Instance.GetProfileByCode(ItemCode.Wand);
-            wand.itemName = "Wand";
+            wand.itemProfile = InventoryManager.Instance.GetProfileByCode(itemCode);
+            wand.itemName = wand.itemProfile.itemName;
             wand.itemCount = 1;
 
-            inventoryCtrl2.RemoveItem(wand);
+            items.RemoveItem(wand);
         }
     }
 }

@@ -1151,6 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1545e95e622233543829f38d7f5a27cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items: []
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,6 +2267,11 @@ MonoBehaviour:
   button: {fileID: 564288803}
   txtItemName: {fileID: 855816723}
   txtItemCount: {fileID: 473345400}
+  itemInventory:
+    itemId: 0
+    itemName: 
+    itemProfile: {fileID: 0}
+    itemCount: 0
 --- !u!1 &579155399
 GameObject:
   m_ObjectHideFlags: 0
@@ -4648,6 +4654,7 @@ MonoBehaviour:
   - {fileID: 1367033673}
   itemProfiles:
   - {fileID: 11400000, guid: d64933d8c8e394c4ea31ff244bfb97a5, type: 2}
+  - {fileID: 11400000, guid: c3e8d9cdaa9d6784ba64aa229fb8405d, type: 2}
   - {fileID: 11400000, guid: 7bcc7a043b02eaa4da7df3c382ab846b, type: 2}
 --- !u!4 &1097623735
 Transform:
@@ -6513,6 +6520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c6997fdea82f549949fe0d1b85debf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items: []
 --- !u!1001 &1368468060
 PrefabInstance:
   m_ObjectHideFlags: 0
