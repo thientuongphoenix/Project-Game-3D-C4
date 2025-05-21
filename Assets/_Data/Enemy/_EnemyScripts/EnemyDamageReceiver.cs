@@ -60,9 +60,10 @@ public class EnemyDamageReceiver : DamageReceiver
 
     protected virtual void RewardOnDead()
     {
-        ItemInventory item = new();
-        item.itemProfile = InventoryManager.Instance.GetProfileByCode(ItemCode.Gold);
-        item.itemCount = 1;
-        InventoryManager.Instance.Monies().AddItem(item);
+        // ItemInventory item = new();
+        // item.itemProfile = InventoryManager.Instance.GetProfileByCode(ItemCode.Gold);
+        // item.itemCount = 1;
+        // InventoryManager.Instance.Monies().AddItem(item);
+        ItemsDropManager.Instance.Drop(ItemCode.Gold, 1, transform.position);
     }
 }

@@ -1049,6 +1049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCount: 0
   poolHolder: {fileID: 952092192}
+  poolPrefabs: {fileID: 0}
   inPoolObjs: []
 --- !u!1 &402722055
 GameObject:
@@ -6508,6 +6509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1359900634}
   - component: {fileID: 1359900635}
+  - component: {fileID: 1359900636}
   m_Layer: 0
   m_Name: Gold
   m_TagString: Untagged
@@ -6545,6 +6547,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despawn: {fileID: 230428826}
+  _rigi: {fileID: 1359900636}
+--- !u!54 &1359900636
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359900633}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1366528498
 GameObject:
   m_ObjectHideFlags: 0
@@ -7662,6 +7692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCount: 0
   poolHolder: {fileID: 346962275}
+  poolPrefabs: {fileID: 2129044057}
   inPoolObjs: []
 --- !u!4 &1600690250
 Transform:
@@ -7834,6 +7865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCount: 0
   poolHolder: {fileID: 350545890}
+  poolPrefabs: {fileID: 1520893929}
   inPoolObjs: []
 --- !u!114 &1663272634
 MonoBehaviour:
@@ -9459,6 +9491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCount: 0
   poolHolder: {fileID: 1669090773}
+  poolPrefabs: {fileID: 1499133270}
   inPoolObjs: []
 --- !u!4 &2041160675
 Transform:
