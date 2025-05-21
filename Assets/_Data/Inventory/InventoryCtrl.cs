@@ -13,6 +13,7 @@ public abstract class InventoryCtrl : SaiMonoBehaviour
         ItemInventory itemExist = this.FindItem(item.itemProfile.itemCode);
         if(!item.itemProfile.isStackable || itemExist == null)
         {
+            item.itemId = Random.Range(0, 999999999);
             this.items.Add(item);
             return;
         }
