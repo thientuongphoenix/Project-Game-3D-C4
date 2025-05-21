@@ -30,12 +30,22 @@ public class ItemsDropManager : SaiSingleton<ItemsDropManager>
         Debug.Log(transform.name + ": LoadSpawner", gameObject);
     }
 
+    public virtual void DropMany(ItemCode itemCode, int dropCount, Vector3 dropPosition)
+    {
+        for (int i = 0; i < dropCount; i++)
+        {
+            this.Drop(itemCode, 1, dropPosition);
+        }
+    }
+
     public virtual void Drop(ItemCode itemCode, int dropCount, Vector3 dropPosition)
     {
         Vector3 spawnPosition = dropPosition + new Vector3(Random.Range(-0.5f, 0.5f), spawnHeight, Random.Range(-0.5f, 0.5f));
-        ItemDropCtrl itemPrefab = this.spawner.PoolPrefabs.GetByName("Gold");
+        ItemDropCtrl itemPrefab = this.spawner.PoolPrefabs.GetByName(itemCode.ToString());
+        if (itemPrefab == null) itemPrefab = this.spawner.PoolPrefabs.GetByName("DefaultDrop");
+
         ItemDropCtrl newItem = this.spawner.Spawn(itemPrefab, spawnPosition);
-        newItem.SetValue(itemCode, dropCount, InvCodeName.Monies);
+        newItem.SetValue(itemCode, dropCount, InvCodeName.Monies); //Chỗ này cần xử lý định hướng túi nào khi nhặt item chứ không thể nào để InvCodeName.Monies được
 
         newItem.gameObject.SetActive(true);
 
