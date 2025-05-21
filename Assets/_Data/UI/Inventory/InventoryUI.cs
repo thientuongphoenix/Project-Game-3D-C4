@@ -6,6 +6,8 @@ public class InventoryUI : SaiSingleton<InventoryUI>
     protected bool isShow = true;
     public bool IsShow => isShow;
 
+    [SerializeField] protected Transform showHide;
+
     [SerializeField] protected BtnItemInventory defaultItemInventoryUI;
     protected List<BtnItemInventory> btnItems = new();
 
@@ -18,13 +20,26 @@ public class InventoryUI : SaiSingleton<InventoryUI>
 
     protected virtual void FixedUpdate()
     {
-        this.ItemUpdating();
+        this.ItemsUpdating();
+    }
+
+    protected virtual void LateUpdate()
+    {
+        this.HotkeyToggleInventory();
     }
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadBtnItemInventory();
+        this.LoadShowHide();
+    }
+
+    protected virtual void LoadShowHide()
+    {
+        if (this.showHide != null) return;
+        this.showHide = transform.Find("ShowHide");
+        Debug.Log(transform.name + ": LoadShowHide", gameObject);
     }
 
     protected virtual void LoadBtnItemInventory()
@@ -36,14 +51,14 @@ public class InventoryUI : SaiSingleton<InventoryUI>
 
     public virtual void Show()
     {
-        gameObject.SetActive(true);
         this.isShow = true;
+        this.showHide.gameObject.SetActive(this.isShow);
     }
 
     public virtual void Hide()
     {
-        gameObject.SetActive(false);
         this.isShow = false;
+        this.showHide.gameObject.SetActive(this.isShow);
     }
 
     public virtual void Toggle()
@@ -57,8 +72,11 @@ public class InventoryUI : SaiSingleton<InventoryUI>
         this.defaultItemInventoryUI.gameObject.SetActive(false);
     }
 
-    protected virtual void ItemUpdating()
+    protected virtual void ItemsUpdating()
     {
+        if(!this.isShow) return;
+        Debug.Log("UI Updating");
+
         InventoryCtrl itemInvCtrl = InventoryManager.Instance.Items();
 
         //if(itemInvCtrl.Items.Count > 20) return;
@@ -85,5 +103,10 @@ public class InventoryUI : SaiSingleton<InventoryUI>
             if(itemInvUI.ItemInventory.itemId == itemInventory.itemId) return itemInvUI;
         }
         return null;
+    }
+
+    protected virtual void HotkeyToggleInventory()
+    {
+        if(InputHotkeys.Instance.IsToggleInventoryUI) this.Toggle();
     }
 }

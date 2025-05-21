@@ -1,16 +1,30 @@
-using UnityEngine;
+using System;
 
-public class ItemCodeParse : MonoBehaviour
+public class ItemCodeParse
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static bool TryParse(string input, out ItemCode itemCode)
     {
-        
+        if (Enum.TryParse(input, out itemCode))
+        {
+            if (Enum.IsDefined(typeof(ItemCode), itemCode))
+            {
+                return true;
+            }
+        }
+
+        itemCode = default;
+        return false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static ItemCode Parse(string input)
     {
-        
+        ItemCode itemCode = (ItemCode)Enum.Parse(typeof(ItemCode), input);
+
+        if (!Enum.IsDefined(typeof(ItemCode), itemCode))
+        {
+            throw new ArgumentException($"'{input}' is not an enum ItemCode.");
+        }
+
+        return itemCode; 
     }
 }
