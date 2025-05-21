@@ -10,45 +10,7 @@ public class InventoryManager : SaiSingleton<InventoryManager>
     {
         base.LoadComponents();
         this.LoadInventories();
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-        this.AddTestGold(100);
-        this.AddTestItems(20);
-        Invoke(nameof(this.AddTestItemDelay), 7f);
-    }
-
-    protected virtual void AddTestItemDelay()
-    {
-        this.AddTestItems(10);
-    }
-
-    protected virtual void AddTestGold(int count)
-    {
-        InventoryCtrl inventoryCtrl = this.GetByName(InvCodeName.Monies);
-
-        ItemInventory gold = new ItemInventory();
-        gold.itemProfile = this.GetProfileByCode(ItemCode.Gold);
-        gold.itemName = "Gold";
-        gold.itemCount = count;
-        inventoryCtrl.AddItem(gold);
-    }
-
-    protected virtual void AddTestItems(int count)
-    {
-        InventoryCtrl inventoryCtrl2 = this.GetByName(InvCodeName.Items);
-
-        for (int i = 0; i < count; i++)
-        {
-            ItemInventory wand = new ItemInventory();
-            wand.itemProfile = this.GetProfileByCode(ItemCode.Wand);
-            wand.itemName = "Wand";
-            wand.itemCount = 1;
-
-            inventoryCtrl2.AddItem(wand);
-        }
+        this.LoadItemProfiles();
     }
 
     protected virtual void LoadInventories()
@@ -89,5 +51,13 @@ public class InventoryManager : SaiSingleton<InventoryManager>
     public virtual InventoryCtrl Items()
     {
         return this.GetByName(InvCodeName.Items);
+    }
+
+    protected virtual void LoadItemProfiles()
+    {
+        if (this.itemProfiles.Count > 0) return;
+        ItemProfileSO[] itemProfileSOs = Resources.LoadAll<ItemProfileSO>("/");
+        this.itemProfiles = new List<ItemProfileSO>(itemProfileSOs);
+        Debug.Log(transform.name + ": LoadItemProfiles", gameObject);
     }
 }
