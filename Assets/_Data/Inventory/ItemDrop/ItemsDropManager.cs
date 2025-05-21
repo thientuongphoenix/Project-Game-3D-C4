@@ -35,6 +35,8 @@ public class ItemsDropManager : SaiSingleton<ItemsDropManager>
         Vector3 spawnPosition = dropPosition + new Vector3(Random.Range(-0.5f, 0.5f), spawnHeight, Random.Range(-0.5f, 0.5f));
         ItemDropCtrl itemPrefab = this.spawner.PoolPrefabs.GetByName("Gold");
         ItemDropCtrl newItem = this.spawner.Spawn(itemPrefab, spawnPosition);
+        newItem.SetValue(itemCode, dropCount, InvCodeName.Monies);
+
         newItem.gameObject.SetActive(true);
 
         Vector3 randomDirection = Random.onUnitSphere;
