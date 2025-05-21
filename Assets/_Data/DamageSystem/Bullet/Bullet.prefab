@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despawn: {fileID: 226900418070929217}
-  speed: 10
+  speed: 20
 --- !u!114 &1947081628729204955
 MonoBehaviour:
   m_ObjectHideFlags: 0
