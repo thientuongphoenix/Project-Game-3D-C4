@@ -15,27 +15,32 @@ public class InventoryManager : SaiSingleton<InventoryManager>
     protected override void Start()
     {
         base.Start();
-        this.AddTestItems();
+        this.AddTestGold(100);
+        this.AddTestItems(20);
+        Invoke(nameof(this.AddTestItemDelay), 7f);
     }
 
-    protected virtual void AddTestItems()
+    protected virtual void AddTestItemDelay()
+    {
+        this.AddTestItems(10);
+    }
+
+    protected virtual void AddTestGold(int count)
     {
         InventoryCtrl inventoryCtrl = this.GetByName(InvCodeName.Monies);
 
         ItemInventory gold = new ItemInventory();
         gold.itemProfile = this.GetProfileByCode(ItemCode.Gold);
         gold.itemName = "Gold";
-        gold.itemCount = 1000;
+        gold.itemCount = count;
         inventoryCtrl.AddItem(gold);
+    }
 
-        // ItemInventory gold2 = new ItemInventory();
-        // gold2.itemProfile = this.GetProfileByCode(ItemCode.Gold);
-        // gold2.itemCount = 2;
-        // inventoryCtrl.AddItem(gold2);
-
+    protected virtual void AddTestItems(int count)
+    {
         InventoryCtrl inventoryCtrl2 = this.GetByName(InvCodeName.Items);
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < count; i++)
         {
             ItemInventory wand = new ItemInventory();
             wand.itemProfile = this.GetProfileByCode(ItemCode.Wand);
@@ -44,11 +49,6 @@ public class InventoryManager : SaiSingleton<InventoryManager>
 
             inventoryCtrl2.AddItem(wand);
         }
-
-        // ItemInventory wand2 = new ItemInventory();
-        // wand2.itemProfile = this.GetProfileByCode(ItemCode.Wand);
-        // wand2.itemCount = 1;
-        // inventoryCtrl2.AddItem(wand2);
     }
 
     protected virtual void LoadInventories()
