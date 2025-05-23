@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPrefabs : EnemyManagerAbstract
+public class EnemyPrefabs : PoolPrefabs<EnemyCtrl>
 {
-    [SerializeField] protected List<EnemyCtrl> prefabs = new();
+    //[SerializeField] protected List<EnemyCtrl> prefabs = new();
 
     protected override void Awake()
     {
@@ -17,13 +17,13 @@ public class EnemyPrefabs : EnemyManagerAbstract
         this.LoadEnemyPrefabs();
     }
 
-    protected virtual void HidePrefabs()
-    {
-        foreach (EnemyCtrl enemyCtrl in this.prefabs)
-        {
-            enemyCtrl.gameObject.SetActive(false);
-        }
-    }
+    // protected virtual void HidePrefabs()
+    // {
+    //     foreach (EnemyCtrl enemyCtrl in this.prefabs)
+    //     {
+    //         enemyCtrl.gameObject.SetActive(false);
+    //     }
+    // }
 
     protected virtual void LoadEnemyPrefabs()
     {
@@ -36,9 +36,9 @@ public class EnemyPrefabs : EnemyManagerAbstract
         Debug.Log(transform.name + ": LoadEnemyPrefabs", gameObject);
     }
 
-    public virtual EnemyCtrl GetRandom()
-    {
-        int rand = Random.Range(0, this.prefabs.Count);
-        return this.prefabs[rand];
-    }
+    // public virtual EnemyCtrl GetRandom()
+    // {
+    //     int rand = Random.Range(0, this.prefabs.Count);
+    //     return this.prefabs[rand];
+    // }
 }

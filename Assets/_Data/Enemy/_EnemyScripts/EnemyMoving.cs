@@ -94,7 +94,7 @@ public class EnemyMoving : SaiMonoBehaviour
     {
         if(this.enemyPath != null) return;
         this.enemyPath = PathsManager.Instance.GetPath(this.pathName);
-        Debug.Log(transform.name + ": LoadEnemyPath", gameObject);
+        //Debug.Log(transform.name + ": LoadEnemyPath", gameObject);
     }
 
     protected virtual void CheckMoving()
