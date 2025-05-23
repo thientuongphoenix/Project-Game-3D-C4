@@ -47,8 +47,8 @@ public class BtnItemInventory : ButttonAbstract
 
     protected virtual void ItemUpdating()
     {
-        Debug.Log("BtnItemUpdating");
-        this.txtItemName.text = this.itemInventory.itemName;
+        //Debug.Log("BtnItemUpdating");
+        this.txtItemName.text = this.itemInventory.GetItemName();
         this.txtItemCount.text = this.itemInventory.itemCount.ToString();
 
         if(this.itemInventory.itemCount == 0) Destroy(gameObject);

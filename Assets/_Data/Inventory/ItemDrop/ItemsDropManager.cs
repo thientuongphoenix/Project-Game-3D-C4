@@ -45,7 +45,7 @@ public class ItemsDropManager : SaiSingleton<ItemsDropManager>
         if (itemPrefab == null) itemPrefab = this.spawner.PoolPrefabs.GetByName("DefaultDrop");
 
         ItemDropCtrl newItem = this.spawner.Spawn(itemPrefab, spawnPosition);
-        newItem.SetValue(itemCode, dropCount, InvCodeName.Monies); //Chỗ này cần xử lý định hướng túi nào khi nhặt item chứ không thể nào để InvCodeName.Monies được
+        newItem.SetValue(itemCode, dropCount, InvCodeName.Currency); //Chỗ này cần xử lý định hướng túi nào khi nhặt item chứ không thể nào để InvCodeName.Monies được
 
         newItem.gameObject.SetActive(true);
 

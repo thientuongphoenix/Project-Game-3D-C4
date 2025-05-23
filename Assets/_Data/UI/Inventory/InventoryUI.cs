@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class InventoryUI : SaiSingleton<InventoryUI>
 {
-    protected bool isShow = true;
+    protected bool isShow = false;
     public bool IsShow => isShow;
 
     [SerializeField] protected Transform showHide;
@@ -14,7 +14,7 @@ public class InventoryUI : SaiSingleton<InventoryUI>
     protected override void Start()
     {
         base.Start();
-        this.Show();
+        this.Hide();
         this.HideDefaultItemInventory();
     }
 
@@ -75,7 +75,7 @@ public class InventoryUI : SaiSingleton<InventoryUI>
     protected virtual void ItemsUpdating()
     {
         if(!this.isShow) return;
-        Debug.Log("UI Updating");
+        //Debug.Log("UI Updating");
 
         InventoryCtrl itemInvCtrl = InventoryManager.Instance.Items();
 
@@ -90,7 +90,7 @@ public class InventoryUI : SaiSingleton<InventoryUI>
                 newBtnItem.SetItem(itemInventory);
                 newBtnItem.transform.localScale = new Vector3(1, 1, 1);
                 newBtnItem.gameObject.SetActive(true);
-                newBtnItem.name = itemInventory.itemName + "-" + itemInventory.itemId;
+                newBtnItem.name = itemInventory.GetItemName() + "-" + itemInventory.ItemID;
                 this.btnItems.Add(newBtnItem);
             }
         }
@@ -100,7 +100,7 @@ public class InventoryUI : SaiSingleton<InventoryUI>
     {
         foreach(BtnItemInventory itemInvUI in this.btnItems)
         {
-            if(itemInvUI.ItemInventory.itemId == itemInventory.itemId) return itemInvUI;
+            if(itemInvUI.ItemInventory.ItemID == itemInventory.ItemID) return itemInvUI;
         }
         return null;
     }
