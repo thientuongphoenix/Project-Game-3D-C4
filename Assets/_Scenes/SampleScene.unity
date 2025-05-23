@@ -163,6 +163,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e43c636ddf9d54dbe622d954329876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 1
+  maxLevel: 100
+  nextLevelExp: 0
+  playerExp:
+    itemName: 
+    itemCount: 0
 --- !u!1 &41075285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,6 +1231,8 @@ MonoBehaviour:
   rotator: {fileID: 1209562152}
   towerTargeting: {fileID: 1157476185}
   bulletSpawner: {fileID: 1600690249}
+  towerShooting: {fileID: 834672384}
+  level: {fileID: 721911378}
   bullet: {fileID: 1487375494}
   bulletPrefabs: {fileID: 2129044057}
   firePoints:
@@ -1246,6 +1254,7 @@ Transform:
   - {fileID: 1665578173}
   - {fileID: 1157476188}
   - {fileID: 834672383}
+  - {fileID: 721911377}
   m_Father: {fileID: 42465869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &396413820
@@ -3072,6 +3081,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668241144}
   m_CullTransparentMesh: 1
+--- !u!1 &721911376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721911377}
+  - component: {fileID: 721911378}
+  m_Layer: 0
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &721911377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721911376}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -42.64, y: 0, z: 2.5500011}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 378270083}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &721911378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721911376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f81627ee1e767a44be592d81299331b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 1
+  maxLevel: 100
+  nextLevelExp: 0
+  towerCtrl: {fileID: 378270082}
 --- !u!1 &727537146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3905,6 +3962,8 @@ MonoBehaviour:
   target: {fileID: 0}
   bulletSpawner: {fileID: 0}
   bullet: {fileID: 0}
+  killCount: 0
+  totalKill: 0
 --- !u!1 &841189471
 GameObject:
   m_ObjectHideFlags: 0
@@ -7917,6 +7976,8 @@ MonoBehaviour:
   target: {fileID: 0}
   bulletSpawner: {fileID: 0}
   bullet: {fileID: 0}
+  killCount: 0
+  totalKill: 0
 --- !u!1 &1453126645
 GameObject:
   m_ObjectHideFlags: 0
@@ -8405,6 +8466,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1596584037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596584038}
+  - component: {fileID: 1596584039}
+  m_Layer: 0
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596584038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596584037}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1995209485}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596584039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596584037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f81627ee1e767a44be592d81299331b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 1
+  maxLevel: 100
+  nextLevelExp: 0
+  towerCtrl: {fileID: 1995209486}
 --- !u!1 &1596918267
 GameObject:
   m_ObjectHideFlags: 0
@@ -10317,6 +10426,7 @@ Transform:
   - {fileID: 2823778062051782896}
   - {fileID: 1958028511}
   - {fileID: 1417551719}
+  - {fileID: 1596584038}
   m_Father: {fileID: 42465869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1995209486
@@ -10335,6 +10445,8 @@ MonoBehaviour:
   rotator: {fileID: 21616566179170321}
   towerTargeting: {fileID: 1958028512}
   bulletSpawner: {fileID: 1600690249}
+  towerShooting: {fileID: 1417551720}
+  level: {fileID: 1596584039}
   bullet: {fileID: 1487375494}
   bulletPrefabs: {fileID: 2129044057}
   firePoints:
