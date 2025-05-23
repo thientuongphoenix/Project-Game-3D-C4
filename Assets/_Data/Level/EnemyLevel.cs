@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class EnemyLevel : MonoBehaviour
+public class EnemyLevel : LevelAbstract
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override bool DeductExp(int exp)
     {
-        
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override int GetCurrentExp()
     {
-        
+        throw new System.NotImplementedException();
     }
 }
