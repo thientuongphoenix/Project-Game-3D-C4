@@ -4,20 +4,37 @@ using UnityEngine;
 public abstract class Spawner<T> : SaiMonoBehaviour where T : PoolObj
 {
     [SerializeField] protected int spawnCount = 0;
-    [SerializeField] protected PoolHolder poolHolder;
+    [SerializeField] protected Transform poolHolder;
+
+    [SerializeField] protected PoolPrefabs<T> poolPrefabs;
+    public PoolPrefabs<T> PoolPrefabs => poolPrefabs;
+
     [SerializeField] protected List<T> inPoolObjs;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadPoolHolder();
+        this.LoadPoolPrefabs();
     }
 
     protected virtual void LoadPoolHolder()
     {
         if (this.poolHolder != null) return;
-        this.poolHolder = transform.GetComponentInChildren<PoolHolder>();
+        this.poolHolder = transform.Find("PoolHolder");
+        if (this.poolHolder == null)
+        {
+            this.poolHolder = new GameObject("PoolHolder").transform;
+            this.poolHolder.parent = transform;
+        }
         Debug.Log(transform.name + ": LoadPoolHolder", gameObject);
+    }
+
+    protected virtual void LoadPoolPrefabs()
+    {
+        if (this.poolPrefabs != null) return;
+        this.poolPrefabs = GetComponentInChildren<PoolPrefabs<T>>();
+        Debug.Log(transform.name + ": LoadPoolPrefabs", gameObject);
     }
 
     public virtual T Spawn(T prefab)

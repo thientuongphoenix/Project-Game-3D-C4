@@ -23,14 +23,14 @@ public abstract class DamageSender : SaiMonoBehaviour
 
     public virtual void OnTriggerEnter(Collider collider)
     {
-        DamageRecever damageRecever = collider.GetComponent<DamageRecever>();
-        if (damageRecever == null) return;
-        this.Send(damageRecever);
+        DamageReceiver damageReceiver = collider.GetComponent<DamageReceiver>();
+        if (damageReceiver == null) return;
+        this.Send(damageReceiver);
         Debug.Log("OnTriggerEnter: " + collider.name);
     }
 
-    protected virtual void Send(DamageRecever damageRecever)
+    protected virtual void Send(DamageReceiver damageReceiver)
     {
-        damageRecever.Deduct(this.damage);
+        damageReceiver.Deduct(this.damage);
     }    
 }
