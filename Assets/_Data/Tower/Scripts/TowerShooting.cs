@@ -9,6 +9,7 @@ public class TowerShooting : TowerAbstract
     [SerializeField] protected EnemyCtrl target;
     [SerializeField] protected BulletSpawner bulletSpawner;
     [SerializeField] protected Bullet bullet;
+    //[SerializeField] protected EffectSpawner effectSpawner;
 
     [SerializeField] protected int killCount = 0;
     public int KillCount => killCount;
@@ -58,11 +59,27 @@ public class TowerShooting : TowerAbstract
         if (this.target == null) return;
 
         FirePoint firePoint = this.GetFirePoint();
-        Bullet newBullet = this.towerCtrl.BulletSpawner.Spawn(this.towerCtrl.Bullet, firePoint.transform.position);
-        Vector3 rotatorDirection = this.towerCtrl.Rotator.forward; // Biến giữ vị trí trục z của phần xoay tháp súng
-        newBullet.transform.forward = rotatorDirection; //Viên đạn bay theo trục z. Mà trục z đang = trục z của mũi súng
 
+        //Lấy vị trí mũi súng
+        Vector3 rotatorDirection = this.towerCtrl.Rotator.transform.forward;
+
+        this.SpawnBullet(firePoint.transform.position, rotatorDirection);
+        this.SpawnMuzzle(firePoint.transform.position, rotatorDirection);
+    }
+
+    protected virtual void SpawnBullet(Vector3 spawnPoint, Vector3 rotatorDirection)
+    {
+        Bullet newBullet = this.towerCtrl.BulletSpawner.Spawn(this.towerCtrl.Bullet, spawnPoint);
+        newBullet.transform.forward = rotatorDirection;
         newBullet.gameObject.SetActive(true);
+    }
+
+    protected virtual void SpawnMuzzle(Vector3 spawnPoint, Vector3 rotatorDirection)
+    {
+        EffectCtrl effect = EffectSpawnerCtrl.Instance.Spawner.PoolPrefabs.GetByName("Muzzle1");
+        EffectCtrl newEffect = EffectSpawnerCtrl.Instance.Spawner.Spawn(effect, spawnPoint);
+        newEffect.transform.forward = rotatorDirection;
+        newEffect.gameObject.SetActive(true);
     }
 
     protected virtual FirePoint GetFirePoint()
