@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AttackHeavy : AttackAbstract
 {
-    protected string effectName = "Fire2";
+    protected string effectName = "Projectile3";
 
     protected override void Attacking()
     {

@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class Projectile1Despawn : EffectDespawn
 {
-    [SerializeField] protected EffectSpawner effectSpawner;
+    //[SerializeField] protected EffectSpawner effectSpawner;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadEffectSpawner();
+        //this.LoadEffectSpawner();
     }
 
-    protected virtual void LoadEffectSpawner()
-    {
-        if (this.effectSpawner != null) return;
-        this.effectSpawner = GameObject.Find("EffectSpawner").GetComponent<EffectSpawner>();
-        Debug.Log(transform.name + ": LoadEffectSpawner", gameObject);
-    }
+    // protected virtual void LoadEffectSpawner()
+    // {
+    //     if (this.effectSpawner != null) return;
+    //     this.effectSpawner = GameObject.Find("EffectSpawner").GetComponent<EffectSpawner>();
+    //     Debug.Log(transform.name + ": LoadEffectSpawner", gameObject);
+    // }
 
 
     public override void DoDespawn()
@@ -26,8 +26,8 @@ public class Projectile1Despawn : EffectDespawn
 
     protected virtual void HitVFX()
     {
-        EffectCtrl effect = this.effectSpawner.PoolPrefabs.GetByName("Hit1");
-        EffectCtrl newEffect = this.effectSpawner.Spawn(effect, gameObject.transform.parent.position);
+        EffectCtrl effect = spawner.PoolPrefabs.GetByName("Hit1");
+        EffectCtrl newEffect = spawner.Spawn(effect, gameObject.transform.parent.position);
         newEffect.gameObject.SetActive(true);
     }
 }
