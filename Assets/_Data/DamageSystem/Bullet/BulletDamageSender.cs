@@ -29,9 +29,9 @@ public class BulletDamageSender : DamageSender
         Debug.Log(transform.name + " LoadSphereCollider", gameObject);
     }
 
-    protected override void Send(DamageReceiver damageRecever)
+    protected override void Send(DamageReceiver damageRecever, Collider collider)
     {
-        base.Send(damageRecever);
+        base.Send(damageRecever, collider);
         //Làm gì đó để Despawn Bullet
         this.bulletCtrl.Bullet.Despawn.DoDespawn();
     }   

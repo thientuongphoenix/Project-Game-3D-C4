@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class EffectDamageSender : DamageSender
+public abstract class EffectDamageSender : DamageSender
 {
     [SerializeField] protected EffectCtrl effectCtrl;
     [SerializeField] protected SphereCollider sphereCollider;
@@ -29,9 +29,22 @@ public class EffectDamageSender : DamageSender
         Debug.Log(transform.name + ": LoadSphereCollider", gameObject);
     }
 
-    protected override void Send(DamageReceiver damageReceiver)
+    protected override void Send(DamageReceiver damageReceiver, Collider collider)
     {
-        base.Send(damageReceiver);
+        base.Send(damageReceiver, collider);
+        this.ShowHitEffect(collider);
+
         this.effectCtrl.Despawn.DoDespawn();
     }
+
+    protected virtual void ShowHitEffect(Collider collider)
+    {
+        //Lấy điểm va chạm giữa 2 collider bằng ClosestPoint
+        Vector3 hitPoint = collider.ClosestPoint(transform.position);
+        EffectCtrl prefab = EffectSpawnerCtrl.Instance.Spawner.PoolPrefabs.GetByName(this.GetHitName());
+        EffectCtrl newEffect = EffectSpawnerCtrl.Instance.Spawner.Spawn(prefab, hitPoint);
+        newEffect.gameObject.SetActive(true);
+    }
+
+    protected abstract string GetHitName();
 }
