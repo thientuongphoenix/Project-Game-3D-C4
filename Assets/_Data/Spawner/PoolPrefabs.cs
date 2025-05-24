@@ -8,13 +8,14 @@ public class PoolPrefabs<T> : SaiMonoBehaviour where T : MonoBehaviour
     protected override void Awake()
     {
         base.Awake();
-        this.HidePrefabs();
+        // this.HidePrefabs();
     }
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadPrefabs();
+        this.HidePrefabs();
     }
 
     protected virtual void HidePrefabs()
