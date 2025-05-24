@@ -4,11 +4,12 @@ public class TowerShooting : TowerAbstract
 {
     [SerializeField] protected int currentFirePoint = 0;
     [SerializeField] protected float targetLoadSpeed = 1f;
-    [SerializeField] protected float shootingSpeed = 1f;
-    [SerializeField] protected float rotationSpeed = 2f;
+    [SerializeField] protected float shootingSpeed = 0.7f;
+    [SerializeField] protected float rotationSpeed = 4f;
     [SerializeField] protected EnemyCtrl target;
     [SerializeField] protected BulletSpawner bulletSpawner;
     [SerializeField] protected Bullet bullet;
+    [SerializeField] protected EffectSpawner effectSpawner;
 
     [SerializeField] protected int killCount = 0;
     public int KillCount => killCount;
@@ -32,6 +33,14 @@ public class TowerShooting : TowerAbstract
     protected override void LoadComponents()
     {
         base.LoadComponents();
+        this.LoadEffectSpawner();
+    }
+
+    protected virtual void LoadEffectSpawner()
+    {
+        if (this.effectSpawner != null) return;
+        this.effectSpawner = GameObject.Find("EffectSpawner").GetComponent<EffectSpawner>();
+        Debug.Log(transform.name + ": LoadEffectSpawner", gameObject);
     }
 
     protected virtual void Looking()
@@ -58,11 +67,39 @@ public class TowerShooting : TowerAbstract
         if (this.target == null) return;
 
         FirePoint firePoint = this.GetFirePoint();
-        Bullet newBullet = this.towerCtrl.BulletSpawner.Spawn(this.towerCtrl.Bullet, firePoint.transform.position);
-        Vector3 rotatorDirection = this.towerCtrl.Rotator.forward; // Biến giữ vị trí trục z của phần xoay tháp súng
-        newBullet.transform.forward = rotatorDirection; //Viên đạn bay theo trục z. Mà trục z đang = trục z của mũi súng
 
+        //Lấy vị trí mũi súng
+        Vector3 rotatorDirection = this.towerCtrl.Rotator.transform.forward;
+
+        this.SpawnBullet(firePoint.transform.position, rotatorDirection);
+        this.SpawnMuzzle(firePoint.transform.position, rotatorDirection);
+    }
+
+    protected virtual void _OldSpawnBullet(Vector3 spawnPoint, Vector3 rotatorDirection)
+    {
+        Bullet newBullet = this.towerCtrl.BulletSpawner.Spawn(this.towerCtrl.Bullet, spawnPoint);
+        newBullet.transform.forward = rotatorDirection;
         newBullet.gameObject.SetActive(true);
+    }
+
+    protected virtual void SpawnBullet(Vector3 spawnPoint, Vector3 rotatorDirection)
+    {
+        EffectCtrl effect = this.effectSpawner.PoolPrefabs.GetByName("Projectile1");
+        EffectCtrl newEffect = this.effectSpawner.Spawn(effect, spawnPoint);
+        newEffect.transform.forward = rotatorDirection;
+
+        EffectFlyAbstract effectFly = (EffectFlyAbstract)newEffect;
+        effectFly.FlyToTarget.SetTarget(this.target.TowerTargetable.transform);
+
+        newEffect.gameObject.SetActive(true);
+    }
+
+    protected virtual void SpawnMuzzle(Vector3 spawnPoint, Vector3 rotatorDirection)
+    {
+        EffectCtrl effect = this.effectSpawner.PoolPrefabs.GetByName("Muzzle1");
+        EffectCtrl newEffect = this.effectSpawner.Spawn(effect, spawnPoint);
+        newEffect.transform.forward = rotatorDirection;
+        newEffect.gameObject.SetActive(true);
     }
 
     protected virtual FirePoint GetFirePoint()

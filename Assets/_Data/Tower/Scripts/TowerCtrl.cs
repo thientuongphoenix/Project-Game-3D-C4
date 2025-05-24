@@ -13,7 +13,7 @@ public class TowerCtrl : SaiMonoBehaviour
     [SerializeField] protected BulletSpawner bulletSpawner;
     public BulletSpawner BulletSpawner => bulletSpawner;
 
-    [SerializeField] protected TowerShooting towerShooting = new();
+    [SerializeField] protected TowerShooting towerShooting;
     public TowerShooting TowerShooting => towerShooting;
 
     [SerializeField] protected LevelAbstract level;
