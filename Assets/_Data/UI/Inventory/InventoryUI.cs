@@ -53,12 +53,14 @@ public class InventoryUI : SaiSingleton<InventoryUI>
     {
         this.isShow = true;
         this.showHide.gameObject.SetActive(this.isShow);
+        HideMouse.Instance.isCursorVisible = this.isShow;
     }
 
     public virtual void Hide()
     {
         this.isShow = false;
         this.showHide.gameObject.SetActive(this.isShow);
+        HideMouse.Instance.isCursorVisible = this.isShow;
     }
 
     public virtual void Toggle()

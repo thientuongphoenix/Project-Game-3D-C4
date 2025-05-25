@@ -1,19 +1,36 @@
 using UnityEngine;
 
-public class HideMouse : MonoBehaviour
+public class HideMouse : SaiSingleton<HideMouse>
 {
-    void Start()
+    public bool isCursorVisible = false;
+
+    protected override void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        SetCursorVisible(this.isCursorVisible);
     }
 
-    void Update()
+    protected virtual void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        SetCursorVisible(this.isCursorVisible);
+
+        // if(Input.GetKeyDown(KeyCode.Escape))
+        // {
+        //     Cursor.visible = true;
+        //     Cursor.lockState = CursorLockMode.None;
+        // }
+    }
+
+    protected void SetCursorVisible(bool visible)
+    {
+        if(this.isCursorVisible)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }
