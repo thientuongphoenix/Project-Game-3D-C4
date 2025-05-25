@@ -5,9 +5,14 @@ public class AttackHeavy : AttackAbstract
     protected string effectName = "Projectile3";
     protected SoundName shootSFXName = SoundName.MagicSpell;
 
+    [SerializeField] protected float cooldown = 3f;
+    protected float currentCooldown;
+    protected bool isOnCooldown;
+
     protected override void Attacking()
     {
         if(!InputManager.Instance.IsAttackHeavy()) return;
+        if(isOnCooldown) return; // Đang hồi chiêu
 
         AttackPoint attackPoint = this.GetAttackPoint();
 
@@ -20,6 +25,28 @@ public class AttackHeavy : AttackAbstract
         //Debug.Log("Attack Light");
 
         this.SpawnSound(effectFly.transform.position);
+
+        StartCooldown();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if(isOnCooldown)
+        {
+            currentCooldown -= Time.deltaTime;
+            if(currentCooldown <= 0)
+            {
+                isOnCooldown = false;
+                currentCooldown = 0;
+            }
+        }
+    }
+
+    protected virtual void StartCooldown()
+    {
+        isOnCooldown = true;
+        currentCooldown = cooldown;
     }
 
     protected virtual EffectCtrl GetEffect()

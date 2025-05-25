@@ -27,6 +27,6 @@ public class InputHotkeys : SaiSingleton<InputHotkeys>
 
     protected virtual void ToggleSetting()
     {
-        this.isToogleSetting = Input.GetKeyUp(KeyCode.N);
+        this.isToogleSetting = Input.GetKeyUp(KeyCode.Escape);
     }
 }
