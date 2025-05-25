@@ -3551,6 +3551,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2457168622425979194, guid: 54e31f77cf8b7624da7de6feeaf15c09, type: 3}
   m_PrefabInstance: {fileID: 591538126}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &600556164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 600556165}
+  - component: {fileID: 600556166}
+  m_Layer: 0
+  m_Name: Despawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &600556165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600556164}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1780259816}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &600556166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600556164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f418f561deeb747bba1379dc5e579b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1780259818}
+  spawner: {fileID: 1796759408}
+  isDespawnByTime: 1
+  timeLife: 7
+  currentTime: 7
 --- !u!1001 &609286158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4180,7 +4229,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 827102221}
   m_Father: {fileID: 394205730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &687691618
@@ -4292,7 +4342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9610ef251334b924d8a54ae0b31ff8a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawn: {fileID: 0}
+  despawn: {fileID: 827102220}
   audioSource: {fileID: 687691618}
 --- !u!1 &727537146
 GameObject:
@@ -5135,6 +5185,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2457168622425979194, guid: 54e31f77cf8b7624da7de6feeaf15c09, type: 3}
   m_PrefabInstance: {fileID: 823365662}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &827102219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 827102221}
+  - component: {fileID: 827102220}
+  m_Layer: 0
+  m_Name: Despawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &827102220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827102219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f418f561deeb747bba1379dc5e579b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 687691619}
+  spawner: {fileID: 1796759408}
+  isDespawnByTime: 1
+  timeLife: 7
+  currentTime: 7
+--- !u!4 &827102221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827102219}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 687691617}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &830368768
 GameObject:
   m_ObjectHideFlags: 0
@@ -6653,6 +6752,55 @@ Transform:
   - {fileID: 493390282}
   m_Father: {fileID: 1499133271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &994286934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 994286935}
+  - component: {fileID: 994286936}
+  m_Layer: 0
+  m_Name: Despawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &994286935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994286934}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1043716542}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &994286936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994286934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f418f561deeb747bba1379dc5e579b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1043716544}
+  spawner: {fileID: 1796759408}
+  isDespawnByTime: 1
+  timeLife: 7
+  currentTime: 7
 --- !u!1 &1004817534
 GameObject:
   m_ObjectHideFlags: 0
@@ -6865,7 +7013,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 994286935}
   m_Father: {fileID: 394205730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1043716543
@@ -6977,7 +7126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c987e09173aa664f9b26bfc7e5ed7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawn: {fileID: 0}
+  despawn: {fileID: 994286936}
   audioSource: {fileID: 1043716543}
 --- !u!1 &1045111347
 GameObject:
@@ -11561,7 +11710,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 600556165}
   m_Father: {fileID: 394205730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1780259817
@@ -11673,7 +11823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162bf3bec3d5c5b46a0aa23da0c1ca77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawn: {fileID: 0}
+  despawn: {fileID: 600556166}
   audioSource: {fileID: 1780259817}
 --- !u!1 &1790409458
 GameObject:
