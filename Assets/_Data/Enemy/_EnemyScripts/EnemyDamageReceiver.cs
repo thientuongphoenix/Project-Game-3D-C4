@@ -65,7 +65,7 @@ public class EnemyDamageReceiver : DamageReceiver
         // item.itemCount = 1;
         // InventoryManager.Instance.Monies().AddItem(item);
         ItemsDropManager.Instance.DropMany(ItemCode.Gold, 10, transform.position);
-        ItemsDropManager.Instance.DropMany(ItemCode.Wand, 5, transform.position);
+        ItemsDropManager.Instance.DropMany(ItemCode.Wand, 1, transform.position);
         ItemsDropManager.Instance.DropMany(ItemCode.PlayerExp, 10, transform.position);
     }
 }
