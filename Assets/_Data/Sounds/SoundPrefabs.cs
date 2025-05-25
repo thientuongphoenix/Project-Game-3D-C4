@@ -1,16 +1,6 @@
 using UnityEngine;
 
-public class SoundPrefabs : MonoBehaviour
+public class SoundPrefabs : PoolPrefabs<SoundCtrl>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

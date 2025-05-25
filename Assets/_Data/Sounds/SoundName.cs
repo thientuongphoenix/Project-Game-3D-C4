@@ -1,16 +1,13 @@
 using UnityEngine;
 
-public class SoundName : MonoBehaviour
+public enum SoundName
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    NoSound = 0,
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //Musix
+    Narco = 1,
+
+    //SFX
+    BerettaM9Shot = 100,
+    MagicSpell = 101,
 }

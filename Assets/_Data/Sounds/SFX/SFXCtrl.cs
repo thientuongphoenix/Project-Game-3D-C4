@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public abstract class MusicCtrl : SoundCtrl
+public abstract class SFXCtrl : SoundCtrl
 {
     protected override void ResetValue()
     {
         base.ResetValue();
-        this.audioSource.loop = true;
+        this.audioSource.loop = false;
     }
 }

@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class BerettaM9ShotCtrl : MonoBehaviour
+public class BerettaM9ShotCtrl : SoundCtrl
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override string GetName()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return "BerettaM9Shot";
     }
 }

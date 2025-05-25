@@ -1,16 +1,45 @@
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : SaiMonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] protected SoundName bgName = SoundName.Narco;
+    [SerializeField] protected MusicCtrl bgMusic;
+    [SerializeField] protected SoundSpawnerCtrl ctrl;
+
+    protected override void Awake()
     {
-        
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Start()
     {
-        
+        base.Start();
+        this.StartMusicBackground();
+    }
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        this.LoadSoundSpawnerCtrl();
+    }
+
+    protected virtual void LoadSoundSpawnerCtrl()
+    {
+        if (this.ctrl != null) return;
+        this.ctrl = GameObject.FindAnyObjectByType<SoundSpawnerCtrl>();
+        Debug.Log(transform.name + ": LoadSoundSpawnerCtrl", gameObject);
+    }
+
+    public virtual void StartMusicBackground()
+    {
+        if (this.bgMusic == null) this.bgMusic = this.CreateBackgroundMusic();
+        this.bgMusic.gameObject.SetActive(true);
+    }
+
+    protected virtual MusicCtrl CreateBackgroundMusic()
+    {
+        MusicCtrl musicPrefab = (MusicCtrl)this.ctrl.Prefabs.GetByName(this.bgName.ToString());
+        return (MusicCtrl)this.ctrl.Spawner.Spawn(musicPrefab, Vector3.zero);
     }
 }
