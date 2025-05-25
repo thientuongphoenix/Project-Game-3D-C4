@@ -5,10 +5,10 @@ public class SliderAbstract : SaiMonoBehaviour
 {
     [SerializeField] protected Slider slider;
 
-    // protected override void Start()
-    // {
-    //     this.slider.onValueChanged.AddListener(OnSliderValueChanged);
-    // }
+    protected override void Start()
+    {
+        this.slider.onValueChanged.AddListener(OnSliderValueChanged); // Call Event
+    }
 
     protected override void LoadComponents()
     {
