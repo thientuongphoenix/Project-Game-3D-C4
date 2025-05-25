@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BerettaM9ShotCtrl : SoundCtrl
+public class BerettaM9ShotCtrl : SFXCtrl
 {
     public override string GetName()
     {

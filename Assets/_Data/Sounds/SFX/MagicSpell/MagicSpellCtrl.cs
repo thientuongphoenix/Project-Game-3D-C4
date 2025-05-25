@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MagicSpellCtrl : SoundCtrl
+public class MagicSpellCtrl : SFXCtrl
 {
     public override string GetName()
     {

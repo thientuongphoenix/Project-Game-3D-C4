@@ -15,6 +15,8 @@ public class TowerShooting : TowerAbstract
     public int KillCount => killCount;
 
     [SerializeField] protected int totalKill = 0;
+
+    [SerializeField] protected SoundName shootSFXName = SoundName.BerettaM9Shot;
     
 
     protected override void Start()
@@ -73,6 +75,7 @@ public class TowerShooting : TowerAbstract
 
         this.SpawnBullet(firePoint.transform.position, rotatorDirection);
         this.SpawnMuzzle(firePoint.transform.position, rotatorDirection);
+        this.SpawnSound(firePoint.transform.position);
     }
 
     protected virtual void _OldSpawnBullet(Vector3 spawnPoint, Vector3 rotatorDirection)
@@ -126,5 +129,12 @@ public class TowerShooting : TowerAbstract
         if(this.killCount < count) return false;
         this.killCount -= count;
         return true;
+    }
+
+    protected virtual void SpawnSound(Vector3 position)
+    {
+        SFXCtrl sfxPrefab = (SFXCtrl)SoundSpawnerCtrl.Instance.Prefabs.GetByName(this.shootSFXName.ToString());
+        SFXCtrl newSfx = (SFXCtrl)SoundSpawnerCtrl.Instance.Spawner.Spawn(sfxPrefab, position);
+        newSfx.gameObject.SetActive(true);
     }
 }
