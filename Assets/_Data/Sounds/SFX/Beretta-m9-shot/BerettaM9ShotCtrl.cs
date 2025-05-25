@@ -6,4 +6,10 @@ public class BerettaM9ShotCtrl : SFXCtrl
     {
         return "BerettaM9Shot";
     }
+
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        this.audioSource.spatialBlend = 1;
+    }
 }

@@ -30,8 +30,8 @@ public class SoundManager : SaiSingleton<SoundManager>
 
     protected virtual void FixedUpdate()
     {
-        this.VolumeMusicUpdating();
-        this.VolumeSfxUpdating();
+        // this.VolumeMusicUpdating();
+        // this.VolumeSfxUpdating();
     }
 
     protected override void LoadComponents()
@@ -82,6 +82,7 @@ public class SoundManager : SaiSingleton<SoundManager>
     public virtual MusicCtrl CreateMusic(MusicCtrl musicPrefab)
     {
         MusicCtrl newMusic = (MusicCtrl)this.ctrl.Spawner.Spawn(musicPrefab, Vector3.zero);
+        newMusic.AudioSource.volume = this.volumeMusic;
         this.AddMusic(newMusic);
         return newMusic;
     }
@@ -101,6 +102,8 @@ public class SoundManager : SaiSingleton<SoundManager>
     public virtual SFXCtrl CreateSfx(SFXCtrl sfxPrefab)
     {
         SFXCtrl newSound = (SFXCtrl)this.ctrl.Spawner.Spawn(sfxPrefab, Vector3.zero);
+        //Điều này đảm bảo rằng sfx mới cũng được cập nhật giá trị volume, vì set volume chỉ ảnh hưởng tới sfx đã sinh ra rồi và được add vào listSfx.
+        newSound.AudioSource.volume = this.volumeSfx;
         this.AddSfx(newSound);
         return newSound;
     }
@@ -111,16 +114,18 @@ public class SoundManager : SaiSingleton<SoundManager>
         this.listSfx.Add(newSound);
     }
 
-    public virtual void VolumeMusicUpdating()
+    public virtual void VolumeMusicUpdating(float volume)
     {
+        this.volumeMusic = volume;
         foreach(MusicCtrl musicCtrl in this.listMusic)
         {
             musicCtrl.AudioSource.volume = this.volumeMusic;
         }
     }
 
-    public virtual void VolumeSfxUpdating()
+    public virtual void VolumeSfxUpdating(float volume)
     {
+        this.volumeSfx = volume;
         foreach(SFXCtrl sfxCtrl in this.listSfx)
         {
             sfxCtrl.AudioSource.volume = this.volumeSfx;
