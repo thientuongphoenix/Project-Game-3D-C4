@@ -29,8 +29,10 @@ public class AttackHeavy : AttackAbstract
 
     protected virtual void SpawnSound(Vector3 position)
     {
-        SFXCtrl sfxPrefab = (SFXCtrl)SoundSpawnerCtrl.Instance.Prefabs.GetByName(this.shootSFXName.ToString());
-        SFXCtrl newSfx = (SFXCtrl)SoundSpawnerCtrl.Instance.Spawner.Spawn(sfxPrefab, position);
+        // SFXCtrl sfxPrefab = (SFXCtrl)SoundSpawnerCtrl.Instance.Prefabs.GetByName(this.shootSFXName.ToString());
+        // SFXCtrl newSfx = (SFXCtrl)SoundSpawnerCtrl.Instance.Spawner.Spawn(sfxPrefab, position);
+        SFXCtrl newSfx = SoundManager.Instance.CreateSfx(this.shootSFXName);
+        newSfx.transform.position = position;
         newSfx.gameObject.SetActive(true);
     }
 }

@@ -1,16 +1,10 @@
 using UnityEngine;
 
-public class MusicDespawn : MonoBehaviour
+public class MusicDespawn : Despawn<SoundCtrl>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void ResetValue()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.ResetValue();
+        this.isDespawnByTime = false;
     }
 }

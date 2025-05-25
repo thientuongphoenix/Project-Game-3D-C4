@@ -6793,12 +6793,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 994286934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81f418f561deeb747bba1379dc5e579b, type: 3}
+  m_Script: {fileID: 11500000, guid: e1831f6992491ab46ac151a48d8b2d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1043716544}
   spawner: {fileID: 1796759408}
-  isDespawnByTime: 1
+  isDespawnByTime: 0
   timeLife: 7
   currentTime: 7
 --- !u!1 &1004817534
@@ -12543,6 +12543,8 @@ MonoBehaviour:
   bgName: 1
   bgMusic: {fileID: 0}
   ctrl: {fileID: 1796759407}
+  listMusic: []
+  listSfx: []
 --- !u!4 &1870858048
 Transform:
   m_ObjectHideFlags: 0
