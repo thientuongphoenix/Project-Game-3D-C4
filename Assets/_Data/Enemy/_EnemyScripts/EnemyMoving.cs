@@ -7,7 +7,7 @@ public class EnemyMoving : SaiMonoBehaviour
     [SerializeField] protected EnemyCtrl enemyCtrl;
     //[SerializeField] protected int pathIndex = 0;
     [SerializeField] protected string pathName = "Path_0";
-    [SerializeField] protected Paths enemyPath;
+    [SerializeField] protected PathMoving enemyPath;
     [SerializeField] protected Point currentPoint;
     [SerializeField] protected float pointDistance = Mathf.Infinity;
     [SerializeField] protected float stopDistance = 1f;
@@ -94,7 +94,7 @@ public class EnemyMoving : SaiMonoBehaviour
     {
         if(this.enemyPath != null) return;
         this.enemyPath = PathsManager.Instance.GetPath(this.pathName);
-        Debug.Log(transform.name + ": LoadEnemyPath", gameObject);
+        //Debug.Log(transform.name + ": LoadEnemyPath", gameObject);
     }
 
     protected virtual void CheckMoving()

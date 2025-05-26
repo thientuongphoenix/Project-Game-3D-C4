@@ -20,7 +20,7 @@ public class Point : SaiMonoBehaviour
         Transform parent = currentPoint.parent;
         if (parent == null)
         {
-            Debug.Log("Mồ côi cha :)), không thể tìm anh em"); //Siblings
+            Debug.Log("Không thể tìm Obj anh em"); //Obj Siblings
             return;
         }
 
