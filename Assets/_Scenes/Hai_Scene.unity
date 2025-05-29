@@ -234,7 +234,7 @@ Transform:
   m_GameObject: {fileID: 36927475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.851, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3781,10 +3781,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 387186954}
   rotator: {fileID: 387186955}
-  towerTargeting: {fileID: 0}
+  towerTargeting: {fileID: 36927477}
   bulletSpawner: {fileID: 1600690249}
   towerShooting: {fileID: 932233856}
-  level: {fileID: 0}
+  level: {fileID: 1050570821}
   bullet: {fileID: 1487375494}
   bulletPrefabs: {fileID: 2129044057}
   firePoints: []
