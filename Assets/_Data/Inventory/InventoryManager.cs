@@ -43,7 +43,7 @@ public class InventoryManager : SaiSingleton<InventoryManager>
         return null;
     }
 
-    public virtual InventoryCtrl Monies()
+    public virtual InventoryCtrl Currency()
     {
         return this.GetByCodeName(InvCodeName.Currency);
     }

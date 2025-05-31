@@ -9,7 +9,7 @@ public class TextPlayerExpCount : TextAbstract
 
     protected virtual void LoadCount()
     {
-        ItemInventory item = InventoryManager.Instance.Monies().FindItem(ItemCode.PlayerExp);
+        ItemInventory item = InventoryManager.Instance.Currency().FindItem(ItemCode.PlayerExp);
         string count;
         if (item == null) count = "0";
         else count = item.itemCount.ToString();
