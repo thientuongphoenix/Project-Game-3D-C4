@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+main
 --- !u!114 &-1672986112950417666
 MonoBehaviour:
   m_ObjectHideFlags: 11
