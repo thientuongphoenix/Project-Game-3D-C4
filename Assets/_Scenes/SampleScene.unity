@@ -285,6 +285,7 @@ Transform:
   - {fileID: 686010093}
   - {fileID: 1580816754}
   - {fileID: 924865218}
+  - {fileID: 914537968}
   - {fileID: 1600690250}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -344,6 +345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MachineGun_2
       objectReference: {fileID: 0}
+    - target: {fileID: 5742109857545332795, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5901704046695459122, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
       propertyPath: playerCamera
       value: 
@@ -363,13 +368,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8500332783635303690, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6170967741724009267, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
 --- !u!1 &89211479
 GameObject:
@@ -3622,6 +3621,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MachineGun_1
       objectReference: {fileID: 0}
+    - target: {fileID: 5742109857545332795, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5901704046695459122, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
       propertyPath: playerCamera
       value: 
@@ -3641,13 +3644,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8500332783635303690, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6170967741724009267, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
 --- !u!4 &559043661 stripped
 Transform:
@@ -7084,6 +7081,11 @@ MonoBehaviour:
   currentHP: 10
   isImmotal: 1
   boxCollider: {fileID: 894253594}
+--- !u!4 &914537968 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6746884252537231752, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+  m_PrefabInstance: {fileID: 7253004640134774314}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &920454832
 GameObject:
   m_ObjectHideFlags: 0
@@ -7215,6 +7217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MachineGun_4
       objectReference: {fileID: 0}
+    - target: {fileID: 5742109857545332795, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5901704046695459122, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
       propertyPath: playerCamera
       value: 
@@ -7234,13 +7240,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8500332783635303690, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6170967741724009267, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
 --- !u!4 &924865218 stripped
 Transform:
@@ -7815,7 +7815,7 @@ MonoBehaviour:
   aimingRig: {fileID: 1584014083}
   animator: {fileID: 543450653059221043}
   weapons: {fileID: 1748499534}
-  level: {fileID: 0}
+  level: {fileID: 21101856}
 --- !u!1 &1043716541
 GameObject:
   m_ObjectHideFlags: 0
@@ -10468,7 +10468,7 @@ GameObject:
   - component: {fileID: 1367033672}
   - component: {fileID: 1367033673}
   m_Layer: 0
-  m_Name: InvMoneies
+  m_Name: InvCurrency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14713,6 +14713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MachineGun_3
       objectReference: {fileID: 0}
+    - target: {fileID: 5742109857545332795, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5901704046695459122, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
       propertyPath: playerCamera
       value: 
@@ -14732,13 +14736,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8500332783635303690, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6170967741724009267, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
 --- !u!1 &2096076891
 GameObject:
@@ -99037,6 +99035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MachineGun
       objectReference: {fileID: 0}
+    - target: {fileID: 5742109857545332795, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5901704046695459122, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
       propertyPath: playerCamera
       value: 
@@ -99056,13 +99058,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8500332783635303690, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6170967741724009267, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
 --- !u!4 &2700874170962733832
 Transform:
@@ -118492,7 +118488,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f5e822387f720fe44b40ca86de4d240c, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118570,7 +118565,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 278e580a216a1c04e97ca368ab7ca078, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -206038,6 +206032,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54e31f77cf8b7624da7de6feeaf15c09, type: 3}
+--- !u!1001 &7253004640134774314
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 42465869}
+    m_Modifications:
+    - target: {fileID: 2053998301678603673, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: m_Name
+      value: ScifiTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 2053998301678603673, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259258918160866388, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1487375494}
+    - target: {fileID: 4259258918160866388, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: bulletPrefabs
+      value: 
+      objectReference: {fileID: 2129044057}
+    - target: {fileID: 4259258918160866388, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: bulletSpawner
+      value: 
+      objectReference: {fileID: 1600690249}
+    - target: {fileID: 6746884252537231752, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746884252537231752, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.519
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746884252537231752, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746884252537231752, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746884252537231752, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746884252537231752, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746884252537231752, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746884252537231752, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746884252537231752, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746884252537231752, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00a53f08108ea614da1c3b0fe4a17095, type: 3}
 --- !u!4 &7863336456347038990
 Transform:
   m_ObjectHideFlags: 0
