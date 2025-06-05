@@ -25,6 +25,7 @@ public class ItemPicker : SaiMonoBehaviour
         if (other.transform.parent == null) return;
         ItemDropCtrl itemDropCtrl = other.transform.parent.GetComponent<ItemDropCtrl>();
         if (itemDropCtrl == null) return;
+        itemDropCtrl.ItemDropPickup.AddItemToInventoryWhenPLayerPickup();
         itemDropCtrl.Despawn.DoDespawn();
     }
 }

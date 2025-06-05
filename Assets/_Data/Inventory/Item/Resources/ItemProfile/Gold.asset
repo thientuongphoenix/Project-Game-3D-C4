@@ -16,3 +16,4 @@ MonoBehaviour:
   itemCode: 1
   itemName: Gold
   isStackable: 1
+  isAutoPickup: 1
