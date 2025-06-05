@@ -16,3 +16,4 @@ MonoBehaviour:
   itemCode: 2
   itemName: PlayerExp
   isStackable: 1
+  isAutoPickup: 1
