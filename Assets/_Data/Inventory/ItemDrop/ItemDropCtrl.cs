@@ -15,6 +15,9 @@ public class ItemDropCtrl : PoolObj
     [SerializeField] protected int itemCount = 1;
     public int ItemCount => itemCount;
 
+    [SerializeField] protected ItemDropPickup itemDropPickup;
+    public ItemDropPickup ItemDropPickup => itemDropPickup;
+
     public override string GetName()
     {
         return "ItemDrop";
@@ -37,6 +40,7 @@ public class ItemDropCtrl : PoolObj
     {
         base.LoadComponents();
         this.LoadRigibody();
+        this.LoadItemDropPickup();
     }
 
     protected virtual void LoadRigibody()
@@ -44,5 +48,12 @@ public class ItemDropCtrl : PoolObj
         if (this._rigi != null) return;
         this._rigi = GetComponent<Rigidbody>();
         Debug.Log(transform.name + ": LoadRigibody", gameObject);
+    }
+
+    protected virtual void LoadItemDropPickup()
+    {
+        if (this.itemDropPickup != null) return;
+        this.itemDropPickup = GetComponentInChildren<ItemDropPickup>();
+        Debug.Log(transform.name + ": LoadItemDropPickup", gameObject);
     }
 }
