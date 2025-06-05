@@ -1609,8 +1609,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1247426903}
   - {fileID: 2944115923755219907}
+  - {fileID: 1085926893}
+  - {fileID: 1247426903}
   m_Father: {fileID: 1520893928}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!54 &341018325
@@ -1657,6 +1658,7 @@ MonoBehaviour:
   invCodeName: 2
   itemCode: 100
   itemCount: 1
+  itemDropPickup: {fileID: 1085926894}
 --- !u!1 &342748075
 GameObject:
   m_ObjectHideFlags: 0
@@ -8270,6 +8272,74 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 5357125061985694705, guid: ebbcd2db5d2a4a342ad72b9680f9d66c, type: 3}
   m_PrefabInstance: {fileID: 1082133491}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1085926892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1085926893}
+  - component: {fileID: 1085926895}
+  - component: {fileID: 1085926894}
+  m_Layer: 0
+  m_Name: ItemDropPickup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1085926893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085926892}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 341018324}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1085926894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085926892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cfe7222cd419b4b956be6514f3f441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxCollider: {fileID: 1085926895}
+  itemDropCtrl: {fileID: 341018326}
+--- !u!65 &1085926895
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085926892}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1765003, y: 0.98489505, z: 0.14545922}
+  m_Center: {x: 0.05251246, y: 0.17379941, z: -0.0019264673}
 --- !u!1 &1088287784
 GameObject:
   m_ObjectHideFlags: 0
@@ -10321,6 +10391,7 @@ MonoBehaviour:
   invCodeName: 2
   itemCode: 0
   itemCount: 1
+  itemDropPickup: {fileID: 0}
 --- !u!54 &1359900636
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10996,6 +11067,7 @@ MonoBehaviour:
   invCodeName: 2
   itemCode: 0
   itemCount: 1
+  itemDropPickup: {fileID: 0}
 --- !u!54 &1456010492
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11381,6 +11453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 1359900635}
+  - {fileID: 2042642979}
   - {fileID: 341018326}
   - {fileID: 1456010491}
 --- !u!1 &1549600697
@@ -14488,6 +14561,7 @@ MonoBehaviour:
   invCodeName: 1
   itemCode: 2
   itemCount: 1
+  itemDropPickup: {fileID: 0}
 --- !u!54 &2042642980
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -240677,7 +240751,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.1765003, y: 0.98489505, z: 0.14545922}
   m_Center: {x: 0.05251246, y: 0.17379941, z: -0.0019264673}
