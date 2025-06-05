@@ -64,8 +64,11 @@ public class EnemyDamageReceiver : DamageReceiver
         // item.itemProfile = InventoryManager.Instance.GetProfileByCode(ItemCode.Gold);
         // item.itemCount = 1;
         // InventoryManager.Instance.Monies().AddItem(item);
-        ItemsDropManager.Instance.DropMany(ItemCode.Gold, 10, transform.position);
-        ItemsDropManager.Instance.DropMany(ItemCode.Wand, 1, transform.position);
-        ItemsDropManager.Instance.DropMany(ItemCode.PlayerExp, 10, transform.position);
+        //ItemsDropManager.Instance.DropMany(ItemCode.Gold, 10, transform.position);
+        //ItemsDropManager.Instance.DropMany(ItemCode.Wand, 1, transform.position);
+        //ItemsDropManager.Instance.DropMany(ItemCode.PlayerExp, 10, transform.position);
+        ItemsDropManager.Instance.DropItemWithAutoPickupCheck(ItemCode.Gold, 10, transform.position);
+        ItemsDropManager.Instance.DropItemWithAutoPickupCheck(ItemCode.Wand, 1, transform.position);
+        ItemsDropManager.Instance.DropItemWithAutoPickupCheck(ItemCode.PlayerExp, 10, transform.position);
     }
 }

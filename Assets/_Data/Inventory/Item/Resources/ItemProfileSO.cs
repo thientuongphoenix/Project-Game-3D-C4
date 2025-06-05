@@ -7,6 +7,7 @@ public class ItemProfileSO : ScriptableObject
     public ItemCode itemCode;
     public string itemName;
     public bool isStackable = false;
+    public bool isAutoPickup = false;
 
     protected virtual void Reset()
     {

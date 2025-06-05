@@ -55,4 +55,22 @@ public class ItemsDropManager : SaiSingleton<ItemsDropManager>
         randomDirection.y = Mathf.Abs(randomDirection.y);
         newItem.Rigidbody.AddForce(randomDirection * forceAmount, ForceMode.Impulse);
     }
+
+    public void DropItemWithAutoPickupCheck(ItemCode itemCode, int amount, Vector3 position, InventoryCtrl targetInventory = null)
+    {
+        ItemProfileSO profile = InventoryManager.Instance.GetProfileByCode(itemCode);
+        if (profile == null) return;
+
+        if (profile.isAutoPickup)
+        {
+            if (targetInventory == null) targetInventory = InventoryManager.Instance.GetByCodeName(profile.invCodeName);
+            ItemInventory item = new ItemInventory(profile, amount);
+            targetInventory.AddItem(item);
+        }
+        else
+        {
+            // Nếu không phải auto-pickup thì spawn item drop ra ngoài thế giới
+            this.DropMany(itemCode, amount, position);
+        }
+    }
 }
