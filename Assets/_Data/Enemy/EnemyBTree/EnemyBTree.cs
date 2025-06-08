@@ -16,8 +16,12 @@ public class EnemyBTree : BTAgent
     public virtual void BuildBehaviorTree()
     {
         // Xóa các node con cũ nếu có
-        tree.children.Clear();
-        tree.currentChild = 0;
+        if(tree != null)
+        {
+            tree.children.Clear();
+            tree.currentChild = 0;
+        }
+        
 
         // Lấy danh sách các Point từ EnemyMoving
         var path = enemyCtrl.EnemyMoving.EnemyPath;
