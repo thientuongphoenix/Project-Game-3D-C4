@@ -15,6 +15,11 @@ public class EnemyBTree : BTAgent
 
     public virtual void BuildBehaviorTree()
     {
+        if (tree == null)
+        {
+            tree = new BehaviorTree();
+        }
+        
         // Xóa các node con cũ nếu có
         if(tree != null)
         {
