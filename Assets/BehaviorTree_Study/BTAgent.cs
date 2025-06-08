@@ -137,4 +137,24 @@ public class BTAgent : MonoBehaviour
     //{
     //    if(treeStatus != Node.Status.SUCCESS) treeStatus = tree.Process();
     //}
+
+    public void ResetBTree()
+    {
+        if (tree != null)
+        {
+            tree.Reset(); // Reset trạng thái toàn bộ node
+        }
+    }
+
+    public void StartBTree()
+    {
+        if (tree != null)
+        {
+            treeStatus = Node.Status.RUNNING;
+            tree.currentChild = 0;
+        }
+        // Đảm bảo coroutine Behave được chạy lại
+        StopAllCoroutines();
+        StartCoroutine(this.Behave());
+    }
 }

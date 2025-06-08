@@ -8,12 +8,18 @@ public class EnemyMoving : SaiMonoBehaviour
     //[SerializeField] protected int pathIndex = 0;
     [SerializeField] protected string pathName = "Path_0";
     [SerializeField] protected PathMoving enemyPath;
+    public PathMoving EnemyPath => enemyPath;
     [SerializeField] protected Point currentPoint;
+    public Point CurrentPoint { get => currentPoint; set => currentPoint = value; }
     [SerializeField] protected float pointDistance = Mathf.Infinity;
     [SerializeField] protected float stopDistance = 1f;
+    public float StopDistance => stopDistance;
     [SerializeField] protected bool canMove = false;
+    public bool CanMove => canMove;
     [SerializeField] protected bool isMoving = false;
+    public bool IsMoving => isMoving;
     [SerializeField] protected bool isFinish = false;
+    public bool IsFinish { get => isFinish; set => isFinish = value; }
 
     protected virtual void OnEnable()
     {
@@ -22,12 +28,12 @@ public class EnemyMoving : SaiMonoBehaviour
 
     protected override void Start()
     {
-        this.LoadEnemyPath();
+        //this.LoadEnemyPath();
     }
 
     private void FixedUpdate()
     {
-        this.Moving();
+        //this.Moving();
         this.CheckMoving();
     }
 
@@ -36,6 +42,14 @@ public class EnemyMoving : SaiMonoBehaviour
         base.LoadComponents();
         this.LoadEnemyCtrl();
         //this.LoadTarget();
+        this.LoadEnemyPath();
+    }
+
+    protected virtual void LoadEnemyPath()
+    {
+        if (this.enemyPath != null) return;
+        this.enemyPath = GameObject.FindAnyObjectByType<PathsManager>().GetPath(this.pathName);
+        Debug.Log(transform.name + ": LoadEnemyPath", gameObject);
     }
 
     protected virtual void LoadEnemyCtrl()
@@ -90,12 +104,12 @@ public class EnemyMoving : SaiMonoBehaviour
         }
     }
 
-    protected virtual void LoadEnemyPath()
-    {
-        if(this.enemyPath != null) return;
-        this.enemyPath = PathsManager.Instance.GetPath(this.pathName);
-        //Debug.Log(transform.name + ": LoadEnemyPath", gameObject);
-    }
+    // protected virtual void LoadEnemyPath()
+    // {
+    //     if(this.enemyPath != null) return;
+    //     this.enemyPath = PathsManager.Instance.GetPath(this.pathName);
+    //     //Debug.Log(transform.name + ": LoadEnemyPath", gameObject);
+    // }
 
     protected virtual void CheckMoving()
     {
@@ -109,5 +123,25 @@ public class EnemyMoving : SaiMonoBehaviour
     {
         this.isFinish = false;
         this.currentPoint = null;
+        // this.isMoving = true;
+        // if (this.enemyPath != null)
+        // {
+        //     this.currentPoint = this.enemyPath.GetPoint(0);
+        // }
+        // if (this.enemyCtrl != null && this.enemyCtrl.Agent != null)
+        // {
+        //     this.enemyCtrl.Agent.isStopped = false;
+        // }
+        // 1. Build lại cây hành vi (nếu cần)
+        // if (enemyCtrl != null && enemyCtrl.EnemyBTree != null)
+        //     enemyCtrl.EnemyBTree.BuildBehaviorTree();
+
+        // // 2. Reset trạng thái cây
+        // if (enemyCtrl != null && enemyCtrl.EnemyBTree != null)
+        //     enemyCtrl.EnemyBTree.ResetBTree();
+
+        // // 3. Khởi động lại cây hành vi
+        // if (enemyCtrl != null && enemyCtrl.EnemyBTree != null)
+        //     enemyCtrl.EnemyBTree.StartBTree();
     }
 }

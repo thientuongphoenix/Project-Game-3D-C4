@@ -17,6 +17,12 @@ public abstract class EnemyCtrl : PoolObj
     [SerializeField] protected EnemyDamageReceiver enemyDamageReceiver;
     public EnemyDamageReceiver EnemyDamageReceiver => enemyDamageReceiver;
 
+    [SerializeField] protected EnemyBTree enemyBTree;
+    public EnemyBTree EnemyBTree => enemyBTree;
+
+    [SerializeField] protected EnemyMoving enemyMoving;
+    public EnemyMoving EnemyMoving => enemyMoving;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -25,6 +31,22 @@ public abstract class EnemyCtrl : PoolObj
         this.LoadAnimator();
         this.LoadTowerTargetable();
         this.LoadEnemyDamageReceiver();
+        this.LoadEnemyBTree();
+        this.LoadEnemyMoving();
+    }
+
+    protected virtual void LoadEnemyMoving()
+    {
+        if (this.enemyMoving != null) return;
+        this.enemyMoving = transform.GetComponentInChildren<EnemyMoving>();
+        Debug.Log(transform.name + ": LoadEnemyMoving", gameObject);
+    }
+
+    protected virtual void LoadEnemyBTree()
+    {
+        if (this.enemyBTree != null) return;
+        this.enemyBTree = transform.GetComponentInChildren<EnemyBTree>();
+        Debug.Log(transform.name + ": LoadEnemyBTree", gameObject);
     }
 
     protected virtual void LoadNavMeshAgent()
