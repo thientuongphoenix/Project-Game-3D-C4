@@ -38,16 +38,18 @@ public class EnemyBTree : BTAgent
             p = p.NextPoint;
         }
 
-        // Tạo Sequence đi qua từng Point
-        Sequence patrolSequence = new Sequence("Patrol Path");
-        for (int i = 0; i < points.Count; i++)
-        {
-            int idx = i; // tránh closure bug
-            Leaf goToPoint = new Leaf("Go to Point " + idx, () => GoToPoint(points[idx]));
-            patrolSequence.AddChild(goToPoint);
-        }
+        // Code mới: Selector ưu tiên Tower > Player > Patrol
+        Selector rootSelector = new Selector("Root Selector");
 
-        tree.AddChild(patrolSequence);
+        Leaf goToNearestTower = new Leaf("Go To Nearest Tower", GoToNearestTower);
+        Leaf goToPlayer = new Leaf("Go To Player", GoToPlayer);
+        Leaf goToNextPoint = new Leaf("Go To Next Point", GoToNextPoint);
+
+        rootSelector.AddChild(goToNearestTower);
+        rootSelector.AddChild(goToPlayer);
+        rootSelector.AddChild(goToNextPoint);
+
+        tree.AddChild(rootSelector);
         tree.PrintTree();
     }
 
@@ -80,7 +82,7 @@ public class EnemyBTree : BTAgent
     // Hàm di chuyển tới một Point, dùng lại logic của EnemyMoving
     public Node.Status GoToPoint(Point point)
     {
-        // Kiểm tra có được phép di chuyển không
+        // Luôn cập nhật point mới trước khi di chuyển
         if (!enemyCtrl.EnemyMoving.CanMove)
         {
             enemyCtrl.Agent.isStopped = true;
@@ -94,7 +96,10 @@ public class EnemyBTree : BTAgent
             return Node.Status.FAILURE;
         }
 
-        // Kiểm tra đã đi hết path chưa
+        // Luôn cập nhật point mới nếu đã đến nơi
+        enemyCtrl.EnemyMoving.FindNextPoint();
+        point = enemyCtrl.EnemyMoving.CurrentPoint;
+
         if (point == null || enemyCtrl.EnemyMoving.IsFinish)
         {
             enemyCtrl.Agent.isStopped = true;
@@ -107,14 +112,70 @@ public class EnemyBTree : BTAgent
         float distance = Vector3.Distance(enemyCtrl.transform.position, point.transform.position);
         if (distance < enemyCtrl.EnemyMoving.StopDistance)
         {
-            // Cập nhật currentPoint và isFinish như logic FindNextPoint
-            enemyCtrl.EnemyMoving.CurrentPoint = point.NextPoint;
-            if (enemyCtrl.EnemyMoving.CurrentPoint == null)
-            {
-                enemyCtrl.EnemyMoving.IsFinish = true;
-            }
+            // Đã đến nơi, lần tick sau sẽ FindNextPoint tiếp
             return Node.Status.SUCCESS;
         }
         return Node.Status.RUNNING;
     }
+
+    // Hàm di chuyển tới Tower gần nhất
+    public Node.Status GoToNearestTower()
+    {
+        var targeting = enemyCtrl.EnemyTargeting;
+        if (targeting == null || targeting.NearestTower == null) return Node.Status.FAILURE;
+        var tower = targeting.NearestTower;
+        if (tower.TowerDamageReceiver != null && tower.TowerDamageReceiver.IsDead()) return Node.Status.FAILURE;
+        enemyCtrl.Agent.isStopped = false;
+        enemyCtrl.Agent.SetDestination(tower.transform.position);
+        float distance = Vector3.Distance(enemyCtrl.transform.position, tower.transform.position);
+        if (distance < enemyCtrl.EnemyMoving.StopDistance)
+        {
+            // Có thể bổ sung logic tấn công tower ở đây
+            Debug.Log("Enemy đã đến gần Tower: " + tower.name);
+            return Node.Status.SUCCESS;
+        }
+        return Node.Status.RUNNING;
+    }
+
+    // Hàm di chuyển tới Player
+    public Node.Status GoToPlayer()
+    {
+        var targeting = enemyCtrl.EnemyTargeting;
+        if (targeting == null || targeting.Player == null) return Node.Status.FAILURE;
+        var player = targeting.Player;
+        // Có thể kiểm tra player chết không nếu cần
+        enemyCtrl.Agent.isStopped = false;
+        enemyCtrl.Agent.SetDestination(player.transform.position);
+        float distance = Vector3.Distance(enemyCtrl.transform.position, player.transform.position);
+        if (distance < enemyCtrl.EnemyMoving.StopDistance)
+        {
+            // Có thể bổ sung logic tấn công player ở đây
+            return Node.Status.SUCCESS;
+        }
+        return Node.Status.RUNNING;
+    }
+
+    // Hàm di chuyển tới point tiếp theo (giữ nguyên logic cũ)
+    public Node.Status GoToNextPoint()
+    {
+        return GoToPoint(enemyCtrl.EnemyMoving.CurrentPoint);
+    }
+
+    /*
+        Root
+└── Selector
+    ├── Combat Selector (Nếu phát hiện Tower/Player ở gần)
+    │   ├── Attack Tower Sequence (25%)
+    │   │   ├── Check Nearest Tower
+    │   │   ├── Go To Nearest Tower
+    │   │   └── Attack Tower
+    │   ├── Attack Player Sequence (25%)
+    │   │   ├── Check Player
+    │   │   ├── Go To Player
+    │   │   └── Attack Player
+    │   └── Continue Moving (50%)
+    │       └── Go To Next Point
+    └── Patrol Sequence (Nếu không có combat)
+        └── Go To Next Point (lặp qua các point)
+        */
 }

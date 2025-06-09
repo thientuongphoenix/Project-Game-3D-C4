@@ -86,7 +86,7 @@ public class EnemyTargeting : SaiMonoBehaviour
 
     protected virtual void AddPlayer(Collider collider)
     {
-        //if (collider.name != Const.ENEMY_TARGETABLE) return;
+        if (collider.name != Const.ENEMY_TARGETABLE) return;
         PlayerCtrl playerCtrl = collider.transform.parent.GetComponent<PlayerCtrl>();
         if(playerCtrl == null) return;
         //if(playerCtrl.PlayerDamageReceiver != null && playerCtrl.PlayerDamageReceiver.IsDead()) return;

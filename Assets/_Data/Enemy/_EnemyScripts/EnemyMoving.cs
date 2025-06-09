@@ -92,7 +92,7 @@ public class EnemyMoving : SaiMonoBehaviour
         this.enemyCtrl.Agent.SetDestination(this.currentPoint.transform.position);
     }
 
-    protected virtual void FindNextPoint()
+    public virtual void FindNextPoint()
     {
         if(this.currentPoint == null) this.currentPoint = this.enemyPath.GetPoint(0);
 
