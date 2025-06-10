@@ -124,6 +124,7 @@ public class EnemyMoving : SaiMonoBehaviour
         this.isFinish = false;
         this.currentPoint = null;
         if(this.enemyCtrl.EnemyTargeting != null) this.enemyCtrl.EnemyTargeting.Towers.Clear();
+        //if(this.enemyCtrl.EnemyTargeting != null) this.enemyCtrl.EnemyTargeting.Player = null;
         //this.enemyCtrl.EnemyTargeting.NearestTower = null;
     }
 }

@@ -19,6 +19,11 @@ public class EnemyTargeting : SaiMonoBehaviour
     [SerializeField] protected TowerCtrl nearestTower;
     public TowerCtrl NearestTower => nearestTower;
 
+    protected virtual void OnEnable()
+    {
+        this.OnReborn();
+    }
+
     protected virtual void FixedUpdate()
     {
         if(this.towers.Count == 0)
@@ -144,5 +149,12 @@ public class EnemyTargeting : SaiMonoBehaviour
                 this.nearestTower = towerCtrl;
             }
         }
+    }
+
+    protected virtual void OnReborn()
+    {
+        if(this.towers != null) this.towers.Clear();
+        if(this.nearestTower != null) this.nearestTower = null;
+        if(this.player != null) this.player = null;
     }
 }
