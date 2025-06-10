@@ -38,18 +38,15 @@ public class EnemyBTree : BTAgent
             p = p.NextPoint;
         }
 
-        // Code mới: Selector ưu tiên Tower > Player > Patrol
-        Selector rootSelector = new Selector("Root Selector");
-
+        // Code mới: RandomSelector theo tỉ lệ 50/25/25
         Leaf goToNearestTower = new Leaf("Go To Nearest Tower", GoToNearestTower);
         Leaf goToPlayer = new Leaf("Go To Player", GoToPlayer);
         Leaf goToNextPoint = new Leaf("Go To Next Point", GoToNextPoint);
 
-        rootSelector.AddChild(goToNearestTower);
-        rootSelector.AddChild(goToPlayer);
-        rootSelector.AddChild(goToNextPoint);
-
-        tree.AddChild(rootSelector);
+        var children = new List<Node> { goToNextPoint, goToPlayer, goToNearestTower };
+        var weights = new List<float> { 0.5f, 0.25f, 0.25f };
+        RandomSelectorEnemy randomSelector = new RandomSelectorEnemy(children, weights);
+        tree.AddChild(randomSelector);
         tree.PrintTree();
     }
 
