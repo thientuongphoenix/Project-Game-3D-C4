@@ -38,7 +38,7 @@ public class EnemyBTree : BTAgent
             p = p.NextPoint;
         }
 
-        // Code mới: RandomSelector theo tỉ lệ 50/25/25
+        //RandomSelector theo tỉ lệ 50/25/25
         Leaf goToNearestTower = new Leaf("Go To Nearest Tower", GoToNearestTower);
         Leaf goToPlayer = new Leaf("Go To Player", GoToPlayer);
         Leaf goToNextPoint = new Leaf("Go To Next Point", GoToNextPoint);
