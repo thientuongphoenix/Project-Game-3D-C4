@@ -121,6 +121,12 @@ public class EnemyBTree : BTAgent
     // Hàm di chuyển tới Tower gần nhất
     public Node.Status GoToNearestTower()
     {
+        if (enemyCtrl.EnemyDamageReceiver.IsDead())
+        {
+            enemyCtrl.Agent.isStopped = true;
+            return Node.Status.FAILURE;
+        }
+
         var targeting = enemyCtrl.EnemyTargeting;
         if (targeting == null || targeting.NearestTower == null) return Node.Status.FAILURE;
         var tower = targeting.NearestTower;
@@ -140,6 +146,12 @@ public class EnemyBTree : BTAgent
     // Hàm di chuyển tới Player
     public Node.Status GoToPlayer()
     {
+        if (enemyCtrl.EnemyDamageReceiver.IsDead())
+        {
+            enemyCtrl.Agent.isStopped = true;
+            return Node.Status.FAILURE;
+        }
+
         var targeting = enemyCtrl.EnemyTargeting;
         if (targeting == null || targeting.Player == null) return Node.Status.FAILURE;
         var player = targeting.Player;
@@ -158,6 +170,12 @@ public class EnemyBTree : BTAgent
     // Hàm di chuyển tới point tiếp theo (giữ nguyên logic cũ)
     public Node.Status GoToNextPoint()
     {
+        if (enemyCtrl.EnemyDamageReceiver.IsDead())
+        {
+            enemyCtrl.Agent.isStopped = true;
+            return Node.Status.FAILURE;
+        }
+        
         return GoToPoint(enemyCtrl.EnemyMoving.CurrentPoint);
     }
 
