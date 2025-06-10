@@ -123,25 +123,7 @@ public class EnemyMoving : SaiMonoBehaviour
     {
         this.isFinish = false;
         this.currentPoint = null;
-        // this.isMoving = true;
-        // if (this.enemyPath != null)
-        // {
-        //     this.currentPoint = this.enemyPath.GetPoint(0);
-        // }
-        // if (this.enemyCtrl != null && this.enemyCtrl.Agent != null)
-        // {
-        //     this.enemyCtrl.Agent.isStopped = false;
-        // }
-        // 1. Build lại cây hành vi (nếu cần)
-        // if (enemyCtrl != null && enemyCtrl.EnemyBTree != null)
-        //     enemyCtrl.EnemyBTree.BuildBehaviorTree();
-
-        // // 2. Reset trạng thái cây
-        // if (enemyCtrl != null && enemyCtrl.EnemyBTree != null)
-        //     enemyCtrl.EnemyBTree.ResetBTree();
-
-        // // 3. Khởi động lại cây hành vi
-        // if (enemyCtrl != null && enemyCtrl.EnemyBTree != null)
-        //     enemyCtrl.EnemyBTree.StartBTree();
+        if(this.enemyCtrl.EnemyTargeting != null) this.enemyCtrl.EnemyTargeting.Towers.Clear();
+        //this.enemyCtrl.EnemyTargeting.NearestTower = null;
     }
 }

@@ -21,6 +21,11 @@ public class EnemyTargeting : SaiMonoBehaviour
 
     protected virtual void FixedUpdate()
     {
+        if(this.towers.Count == 0)
+        {
+            this.nearestTower = null;
+            return;
+        }
         this.FindNearestTower();
         //this.FindPlayer();
         //this.RemoveDeadTower();
@@ -79,6 +84,11 @@ public class EnemyTargeting : SaiMonoBehaviour
             if(collider.transform.parent == towerCtrl.transform)
             {
                 this.towers.Remove(towerCtrl);
+                // Nếu không còn tower nào trong vùng, reset NearestTower
+                if (this.towers.Count == 0)
+                {
+                    this.nearestTower = null;
+                }
                 return;
             }
         }
@@ -124,9 +134,9 @@ public class EnemyTargeting : SaiMonoBehaviour
     {
         float nearestDistance = Mathf.Infinity;
         float towerDistance;
+        
         foreach(TowerCtrl towerCtrl in this.towers)
         {
-            // Nếu muốn kiểm tra tầm nhìn, có thể bổ sung hàm CanSeeTarget tương tự TowerTargeting
             towerDistance = Vector3.Distance(transform.position, towerCtrl.transform.position);
             if(towerDistance < nearestDistance)
             {
