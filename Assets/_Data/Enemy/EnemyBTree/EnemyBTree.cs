@@ -6,6 +6,9 @@ public class EnemyBTree : BTAgent
     [SerializeField] protected EnemyCtrl enemyCtrl;
     public EnemyCtrl EnemyCtrl => enemyCtrl;
 
+    private float attackCooldown = 1.0f; // thời gian giữa các đòn đánh
+    private float lastAttackTime = -999f;
+
     public override void Start()
     {
         base.Start();
@@ -42,8 +45,14 @@ public class EnemyBTree : BTAgent
         Leaf goToNearestTower = new Leaf("Go To Nearest Tower", GoToNearestTower);
         Leaf goToPlayer = new Leaf("Go To Player", GoToPlayer);
         Leaf goToNextPoint = new Leaf("Go To Next Point", GoToNextPoint);
+        Leaf attackTower = new Leaf("Attack Tower", AttackTower);
 
-        var children = new List<Node> { goToNextPoint, goToPlayer, goToNearestTower };
+        // Sequence: Đi đến gần tower rồi mới attack
+        Sequence attackTowerSequence = new Sequence("Attack Tower Sequence");
+        attackTowerSequence.AddChild(goToNearestTower);
+        attackTowerSequence.AddChild(attackTower);
+
+        var children = new List<Node> { goToNextPoint, goToPlayer, attackTowerSequence };
         var weights = new List<float> { 0.5f, 0.25f, 0.25f };
         RandomSelectorEnemy randomSelector = new RandomSelectorEnemy(children, weights);
         tree.AddChild(randomSelector);
@@ -93,6 +102,8 @@ public class EnemyBTree : BTAgent
             return Node.Status.FAILURE;
         }
 
+        //enemyCtrl.Agent.isStopped = false;
+
         // Luôn cập nhật point mới nếu đã đến nơi
         enemyCtrl.EnemyMoving.FindNextPoint();
         point = enemyCtrl.EnemyMoving.CurrentPoint;
@@ -133,7 +144,9 @@ public class EnemyBTree : BTAgent
         float distance = Vector3.Distance(enemyCtrl.transform.position, tower.transform.position);
         if (distance < enemyCtrl.EnemyMoving.StopDistance)
         {
-            // Có thể bổ sung logic tấn công tower ở đây
+            // Logic tấn công tower
+            //enemyCtrl.Agent.isStopped = true;
+            //enemyCtrl.Animator.SetBool("isAttack", true);
             Debug.Log("Enemy đã đến gần Tower: " + tower.name);
             return Node.Status.SUCCESS;
         }
@@ -174,6 +187,28 @@ public class EnemyBTree : BTAgent
         }
         
         return GoToPoint(enemyCtrl.EnemyMoving.CurrentPoint);
+    }
+
+    // Node tấn công tower
+    public Node.Status AttackTower()
+    {
+        var targeting = enemyCtrl.EnemyTargeting;
+        if (targeting == null || targeting.NearestTower == null) return Node.Status.FAILURE;
+        var tower = targeting.NearestTower;
+        if (tower.TowerDamageReceiver != null && tower.TowerDamageReceiver.IsDead())
+        {
+            enemyCtrl.Animator.SetBool("isAttack", false);
+            return Node.Status.SUCCESS;
+        }
+        // Đứng lại tại chỗ để đánh
+        enemyCtrl.Agent.isStopped = true;
+        // Đánh liên tục theo cooldown
+        if (Time.time - lastAttackTime > attackCooldown)
+        {
+            enemyCtrl.Animator.SetTrigger("isAttack");
+            lastAttackTime = Time.time;
+        }
+        return Node.Status.RUNNING;
     }
 
     /*

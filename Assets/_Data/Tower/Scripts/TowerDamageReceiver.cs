@@ -35,7 +35,7 @@ public class TowerDamageReceiver : DamageReceiver
         //this.enemyCtrl.Animator.SetBool("isDead", this.isDead);
         this.sphereCollider.enabled = false;
         //this.RewardOnDead();
-        Invoke(nameof(this.Disappear), 3f);
+        Invoke(nameof(this.Disappear), 1f);
     }
 
     protected override void OnHurt()
@@ -46,6 +46,7 @@ public class TowerDamageReceiver : DamageReceiver
 
     protected virtual void Disappear()
     {
+        Destroy(this.towerCtrl.gameObject);
         //this.enemyCtrl.Despawn.DoDespawn();
     }
 

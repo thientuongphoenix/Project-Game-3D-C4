@@ -84,6 +84,7 @@ public class EnemyTargeting : SaiMonoBehaviour
 
     protected virtual void RemoveTower(Collider collider)
     {
+        if(this.towers.Count == 0) return;
         foreach(TowerCtrl towerCtrl in this.towers)
         {
             if(collider.transform.parent == towerCtrl.transform)
@@ -142,6 +143,7 @@ public class EnemyTargeting : SaiMonoBehaviour
         
         foreach(TowerCtrl towerCtrl in this.towers)
         {
+            if(towerCtrl == null) continue;
             towerDistance = Vector3.Distance(transform.position, towerCtrl.transform.position);
             if(towerDistance < nearestDistance)
             {
