@@ -1232,7 +1232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000014155187302, guid: 9821e2208ca8b4b4e9dd3e52c51df227, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.51
+      value: 20.24
       objectReference: {fileID: 0}
     - target: {fileID: 4000014155187302, guid: 9821e2208ca8b4b4e9dd3e52c51df227, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1240,7 +1240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000014155187302, guid: 9821e2208ca8b4b4e9dd3e52c51df227, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.92
+      value: -22.29
       objectReference: {fileID: 0}
     - target: {fileID: 4000014155187302, guid: 9821e2208ca8b4b4e9dd3e52c51df227, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7091,7 +7091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyManagerCtrl: {fileID: 1339449921}
   spawnSpeed: 1
-  maxSpawn: 10
+  maxSpawn: 2
 --- !u!1 &887037452
 GameObject:
   m_ObjectHideFlags: 0
@@ -7350,7 +7350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1154762790315764145, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.7
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 1154762790315764145, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
       propertyPath: m_LocalRotation.w
