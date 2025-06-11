@@ -11737,7 +11737,7 @@ Transform:
   m_GameObject: {fileID: 1578762050}
   serializedVersion: 2
   m_LocalRotation: {x: -0.41453397, y: -0.60651326, z: 0.58646214, w: 0.3411239}
-  m_LocalPosition: {x: -0.146, y: 0.495, z: -0.005}
+  m_LocalPosition: {x: 0.002, y: 0.179, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11805,8 +11805,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.21389355
+  m_Center: {x: 0.06068743, y: -0.00729181, z: 0.050694242}
 --- !u!4 &1580816754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1154762790315764145, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}
@@ -14931,7 +14931,7 @@ MonoBehaviour:
   enemyPath: {fileID: 3959231983631872375}
   currentPoint: {fileID: 0}
   pointDistance: Infinity
-  stopDistance: 2
+  stopDistance: 1.5
   canMove: 1
   isMoving: 0
   isFinish: 0

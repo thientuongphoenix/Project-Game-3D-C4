@@ -12,7 +12,7 @@ public class EnemyMoving : SaiMonoBehaviour
     [SerializeField] protected Point currentPoint;
     public Point CurrentPoint { get => currentPoint; set => currentPoint = value; }
     [SerializeField] protected float pointDistance = Mathf.Infinity;
-    [SerializeField] protected float stopDistance = 2f;
+    [SerializeField] protected float stopDistance = 1f;
     public float StopDistance => stopDistance;
     [SerializeField] protected bool canMove = false;
     public bool CanMove => canMove;

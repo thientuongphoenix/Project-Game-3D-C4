@@ -31,6 +31,9 @@ public abstract class EnemyDamageSender : DamageSender
 
     protected override void Send(DamageReceiver damageReceiver, Collider collider)
     {
+        // Nếu đối tượng nhận damage là EnemyDamageReceiver thì không gây damage
+        if (damageReceiver is EnemyDamageReceiver) return;
+
         base.Send(damageReceiver, collider);
         //this.ShowHitEffect(collider);
 
