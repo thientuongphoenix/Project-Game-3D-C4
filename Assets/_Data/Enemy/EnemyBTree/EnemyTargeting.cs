@@ -84,14 +84,36 @@ public class EnemyTargeting : SaiMonoBehaviour
 
     protected virtual void RemoveTower(Collider collider)
     {
-        if(this.towers.Count == 0) return;
-        foreach(TowerCtrl towerCtrl in this.towers)
+        //if(this.towers.Count == 0) return;
+        // foreach(TowerCtrl towerCtrl in this.towers)
+        // {
+        //     if(collider.transform.parent == towerCtrl.transform)
+        //     {
+        //         this.towers.Remove(towerCtrl);
+        //         // Nếu không còn tower nào trong vùng, reset NearestTower
+        //         if (this.towers.Count == 0)
+        //         {
+        //             this.nearestTower = null;
+        //         }
+        //         return;
+        //     }
+        // }
+        // Dùng for thay vì foreach để tránh lỗi khi remove trong vòng lặp
+        for (int i = towers.Count - 1; i >= 0; i--)
         {
-            if(collider.transform.parent == towerCtrl.transform)
+            TowerCtrl towerCtrl = towers[i];
+            // Kiểm tra null hoặc đã bị destroy
+            if (towerCtrl == null) 
             {
-                this.towers.Remove(towerCtrl);
-                // Nếu không còn tower nào trong vùng, reset NearestTower
-                if (this.towers.Count == 0)
+                towers.RemoveAt(i);
+                continue;
+            }
+            // Kiểm tra transform
+            if (collider.transform.parent == towerCtrl.transform)
+            {
+                towers.RemoveAt(i);
+                // Nếu không còn tower nào thì reset luôn
+                if (towers.Count == 0)
                 {
                     this.nearestTower = null;
                 }
