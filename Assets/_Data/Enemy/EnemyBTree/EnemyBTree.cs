@@ -46,13 +46,19 @@ public class EnemyBTree : BTAgent
         Leaf goToPlayer = new Leaf("Go To Player", GoToPlayer);
         Leaf goToNextPoint = new Leaf("Go To Next Point", GoToNextPoint);
         Leaf attackTower = new Leaf("Attack Tower", AttackTower);
+        Leaf attackPlayer = new Leaf("Attack Player", AttackPlayer);
+
+        // Sequence: Đi đến gần player rồi mới attack
+        Sequence attackPlayerSequence = new Sequence("Attack Player Sequence");
+        attackPlayerSequence.AddChild(goToPlayer);
+        attackPlayerSequence.AddChild(attackPlayer);
 
         // Sequence: Đi đến gần tower rồi mới attack
         Sequence attackTowerSequence = new Sequence("Attack Tower Sequence");
         attackTowerSequence.AddChild(goToNearestTower);
         attackTowerSequence.AddChild(attackTower);
 
-        var children = new List<Node> { goToNextPoint, goToPlayer, attackTowerSequence };
+        var children = new List<Node> { goToNextPoint, attackPlayerSequence, attackTowerSequence };
         var weights = new List<float> { 0.5f, 0.25f, 0.25f };
         RandomSelectorEnemy randomSelector = new RandomSelectorEnemy(children, weights);
         tree.AddChild(randomSelector);
@@ -199,6 +205,36 @@ public class EnemyBTree : BTAgent
         {
             enemyCtrl.Animator.SetBool("isAttack", false);
             return Node.Status.SUCCESS;
+        }
+        // Đứng lại tại chỗ để đánh
+        enemyCtrl.Agent.isStopped = true;
+        // Đánh liên tục theo cooldown
+        if (Time.time - lastAttackTime > attackCooldown)
+        {
+            enemyCtrl.Animator.SetTrigger("isAttack");
+            lastAttackTime = Time.time;
+        }
+        return Node.Status.RUNNING;
+    }
+
+    // Node tấn công player
+    public Node.Status AttackPlayer()
+    {
+        var targeting = enemyCtrl.EnemyTargeting;
+        if (targeting == null || targeting.Player == null)
+        {
+            // Player đã rời khỏi phạm vi phát hiện
+            enemyCtrl.Animator.SetBool("isAttack", false);
+            return Node.Status.SUCCESS;
+        }
+        // Kiểm tra khoảng cách tấn công
+        float distance = Vector3.Distance(enemyCtrl.transform.position, targeting.Player.transform.position);
+        float attackRange = 1.5f; // hoặc enemyCtrl.EnemyAttackRange nếu có
+        if (distance > attackRange)
+        {
+            // Player đã rời khỏi phạm vi tấn công, quay lại chase
+            enemyCtrl.Animator.SetBool("isAttack", false);
+            return Node.Status.FAILURE;
         }
         // Đứng lại tại chỗ để đánh
         enemyCtrl.Agent.isStopped = true;
