@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 4326232311791054520}
   - component: {fileID: 1587127672869536948}
   - component: {fileID: 5766022108821117080}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TowerTargeting
   m_TagString: Untagged
   m_Icon: {fileID: 0}

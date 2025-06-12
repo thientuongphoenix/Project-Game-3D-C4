@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InventoryMonies : InventoryCtrl
+public class InventoryCurrency : InventoryCtrl
 {
     public override InvCodeName GetName()
     {
