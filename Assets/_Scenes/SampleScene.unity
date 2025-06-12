@@ -10042,10 +10042,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
-  m_Height: 0.6
+  m_Radius: 0.18
+  m_Height: 1.16
   m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0}
+  m_Center: {x: -0.0013475418, y: 0.62076235, z: -0.0060242712}
 --- !u!1 &1349809802
 GameObject:
   m_ObjectHideFlags: 0
@@ -11718,8 +11718,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1578762051}
-  - component: {fileID: 1578762054}
   - component: {fileID: 1578762053}
+  - component: {fileID: 1578762055}
   - component: {fileID: 1578762052}
   m_Layer: 6
   m_Name: DamageSender
@@ -11737,7 +11737,7 @@ Transform:
   m_GameObject: {fileID: 1578762050}
   serializedVersion: 2
   m_LocalRotation: {x: -0.41453397, y: -0.60651326, z: 0.58646214, w: 0.3411239}
-  m_LocalPosition: {x: 0.002, y: 0.179, z: 0.02}
+  m_LocalPosition: {x: -0.076, y: 0.345, z: 0.007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11758,7 +11758,7 @@ MonoBehaviour:
   rigid: {fileID: 1578762053}
   damage: 1
   enemyCtrl: {fileID: 21232864}
-  sphereCollider: {fileID: 1578762054}
+  capsuleCollider: {fileID: 1578762055}
 --- !u!54 &1578762053
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11786,8 +11786,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &1578762054
-SphereCollider:
+--- !u!136 &1578762055
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11804,9 +11804,11 @@ SphereCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.21389355
-  m_Center: {x: 0.06068743, y: -0.00729181, z: 0.050694242}
+  serializedVersion: 2
+  m_Radius: 0.27
+  m_Height: 0.94
+  m_Direction: 0
+  m_Center: {x: 0.0050312933, y: -0.050394345, z: 0.015560505}
 --- !u!4 &1580816754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1154762790315764145, guid: 82dfcc0871a32f345861f37000ae0d3b, type: 3}

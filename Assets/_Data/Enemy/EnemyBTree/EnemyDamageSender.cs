@@ -1,16 +1,18 @@
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
+//[RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof(CapsuleCollider))]
 public abstract class EnemyDamageSender : DamageSender
 {
     [SerializeField] protected EnemyCtrl enemyCtrl;
-    [SerializeField] protected SphereCollider sphereCollider;
-
+    //[SerializeField] protected SphereCollider sphereCollider;
+    [SerializeField] protected CapsuleCollider capsuleCollider;
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadSphereCollider();
+        //this.LoadSphereCollider();
         this.LoadEnemyCtrl();
+        this.LoadCapsuleCollider();
     }
 
     protected virtual void LoadEnemyCtrl()
@@ -20,14 +22,24 @@ public abstract class EnemyDamageSender : DamageSender
         Debug.Log(transform.name + ": LoadEnemyCtrl", gameObject);
     }
 
-    protected virtual void LoadSphereCollider()
+    protected virtual void LoadCapsuleCollider()
     {
-        if (this.sphereCollider != null) return;
-        this.sphereCollider = GetComponent<SphereCollider>();
-        this.sphereCollider.radius = 0.15f;
-        this.sphereCollider.isTrigger = true;
-        Debug.Log(transform.name + ": LoadSphereCollider", gameObject);
+        if (this.capsuleCollider != null) return;
+        this.capsuleCollider = GetComponent<CapsuleCollider>();
+        this.capsuleCollider.radius = 0.27f;
+        this.capsuleCollider.height = 0.94f;
+        this.capsuleCollider.direction = 0; //X-axis
+        this.capsuleCollider.isTrigger = true;
     }
+
+    // protected virtual void LoadSphereCollider()
+    // {
+    //     if (this.sphereCollider != null) return;
+    //     this.sphereCollider = GetComponent<SphereCollider>();
+    //     this.sphereCollider.radius = 0.15f;
+    //     this.sphereCollider.isTrigger = true;
+    //     Debug.Log(transform.name + ": LoadSphereCollider", gameObject);
+    // }
 
     protected override void Send(DamageReceiver damageReceiver, Collider collider)
     {
