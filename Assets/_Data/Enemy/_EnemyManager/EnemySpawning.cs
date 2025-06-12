@@ -29,6 +29,17 @@ public class EnemySpawning : EnemyManagerAbstract
       EnemyCtrl newEnemy = this.enemyManagerCtrl.EnemySpawner.Spawn(prefab, transform.position);
       newEnemy.gameObject.SetActive(true);
 
+      if (newEnemy != null && newEnemy.EnemyBTree != null)
+            newEnemy.EnemyBTree.BuildBehaviorTree();
+
+        // 2. Reset trạng thái cây
+        if (newEnemy != null && newEnemy.EnemyBTree != null)
+            newEnemy.EnemyBTree.ResetBTree();
+
+        // 3. Khởi động lại cây hành vi
+        if (newEnemy != null && newEnemy.EnemyBTree != null)
+            newEnemy.EnemyBTree.StartBTree();
+
       this.spawnedEnemies.Add(newEnemy);
       Debug.Log("Spawning");
     }

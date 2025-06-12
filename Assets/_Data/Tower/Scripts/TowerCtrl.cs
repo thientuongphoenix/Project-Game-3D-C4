@@ -29,7 +29,8 @@ public class TowerCtrl : SaiMonoBehaviour
     [SerializeField] protected List<FirePoint> firePoints = new();
     public List<FirePoint> FirePoints => firePoints;
 
-    
+    [SerializeField] protected TowerDamageReceiver towerDamageReceiver;
+    public TowerDamageReceiver TowerDamageReceiver => towerDamageReceiver;
 
     protected override void Awake()
     {
@@ -49,6 +50,14 @@ public class TowerCtrl : SaiMonoBehaviour
 
         this.LoadTowerShootings();
         this.LoadLevel();
+        this.LoadTowerDamageReceiver();
+    }
+
+    protected virtual void LoadTowerDamageReceiver()
+    {
+        if(this.towerDamageReceiver != null) return;
+        this.towerDamageReceiver = GetComponentInChildren<TowerDamageReceiver>();
+        Debug.Log(transform.name + ": LoadTowerDamageReceiver", gameObject);
     }
 
     protected virtual void LoadLevel()
