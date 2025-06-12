@@ -35,6 +35,7 @@ public class EnemyDamageReceiver : DamageReceiver
     protected override void OnDead()
     {
         base.OnDead();
+        //this.enemyCtrl.Agent.isStopped = true;
         this.enemyCtrl.Animator.SetBool("isDead", this.isDead);
         this.capsuleCollider.enabled = false;
         this.RewardOnDead();
@@ -55,6 +56,7 @@ public class EnemyDamageReceiver : DamageReceiver
     protected override void OnReborn()
     {
         base.OnReborn();
+        //this.enemyCtrl.Agent.isStopped = false;
         this.capsuleCollider.enabled = true;
     }
 
